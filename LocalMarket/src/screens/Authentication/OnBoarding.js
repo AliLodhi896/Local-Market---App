@@ -8,11 +8,9 @@ import {
 } from 'react-native';
 import Colors from '../../constant/Colors';
 import {InputField, PrimaryButton} from '../../components';
-import { AuthContext } from '../../context/Context';
 import { useForm } from 'react-hook-form';
 
 const OnBoarding = () => {
-  const {setIsSignin,isSignin,setDescription} = useContext(AuthContext);
   const {
     control,
     register,
@@ -20,17 +18,6 @@ const OnBoarding = () => {
     formState: {errors, isValid},
   } = useForm({mode: 'all'});
 
-
-  const signIn = async data => {
-    try {
-      const responseData = await 
-    } catch (error) {
-      
-    }
-
-    setDescription({name:'WAHAJ',number:'120399123'})
-     setIsSignin(true)
-  }
 
   return (
     <ImageBackground
@@ -57,7 +44,7 @@ const OnBoarding = () => {
       <View>
         <PrimaryButton
           title={'Sign in'}
-          onPress={() => signIn()}
+          // onPress={() => signIn()}
           containerStyle={styles.containerStyle}
           buttonPressed={styles.buttonPressed}
         />
