@@ -3,7 +3,6 @@ import Colors from '../constant/Colors';
 import {createStackNavigator, TransitionSpecs} from '@react-navigation/stack';
 import Home from '../screens/Home';
 import Subject from '../screens/Subject';
-import { Welcome } from '../screens/Authentication';
 import LessonDetail from '../screens/LessonDetail';
 import CreateAILesson from '../screens/CreateAILesson';
 

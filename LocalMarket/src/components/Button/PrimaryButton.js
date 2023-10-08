@@ -13,7 +13,7 @@ const PrimaryButton = props => {
         pressed && props.buttonPressed,
         pressed && props.googleButtonPressed
       ]}>
-      <Text style={[styles.btnText, props.textStyle]}>{props.title}</Text>
+      <Text style={[styles.btnText, props.textStyle, props.textStyle1, props.style]}>{props.title}</Text>
     </Pressable>
   );
 };
@@ -21,15 +21,17 @@ const PrimaryButton = props => {
 const styles = StyleSheet.create({
   buttonContainer: {
     backgroundColor: Colors.primary,
-    padding: '4%',
+    // padding: '4%',
     borderRadius: 25,
     alignItems: 'center',
     width: '100%',
+    justifyContent:'center',
   },
   btnText: {
     fontSize: 20,
     color: Colors.secondaryColor,
     fontWeight: 'bold',
+    textAlign: 'center'
   },
 });
 
