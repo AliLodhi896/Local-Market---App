@@ -74,9 +74,7 @@ const Home = () => {
                     paddingHorizontal: 9,
                     paddingVertical: 6,
                     backgroundColor:
-                      itemData.item.id === classId
-                        ? Colors.btnPress
-                        : 'white',
+                      itemData.item.id === classId ? Colors.btnPress : 'white',
                     borderRadius: itemData.item.id === classId ? 8 : 0,
                     // elevation: classItem.id === classId ? 6 : 0,
                   }}
@@ -103,9 +101,14 @@ const Home = () => {
             );
           })}
         </View>
-        <FloatingButton createLesson={() => refRBSheet.current.open()} openCreateAI={() => {navigation.navigate(CreateAILesson)}} />
+        <FloatingButton
+          createLesson={() => refRBSheet.current.open()}
+          openCreateAI={() => {
+            navigation.navigate(CreateAILesson);
+          }}
+        />
       </View>
-      <BottomSheet refRBSheet={refRBSheet} classes={classes} subject={card}/>
+      <BottomSheet refRBSheet={refRBSheet} classes={classes} subject={card} />
     </View>
   );
 };

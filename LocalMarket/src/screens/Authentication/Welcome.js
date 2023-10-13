@@ -3,7 +3,7 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import {DottedSlider, PrimaryButton} from '../../components';
 import Colors from '../../constant/Colors';
 import {useNavigation} from '@react-navigation/native';
-import Home from '../Home';
+
 
 const Welcome = () => {
   const navigation = useNavigation();

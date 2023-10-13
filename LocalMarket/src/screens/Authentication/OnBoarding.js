@@ -11,6 +11,7 @@ import {InputField, PrimaryButton} from '../../components';
 import { useForm } from 'react-hook-form';
 import {useNavigation} from '@react-navigation/native';
 
+
 const OnBoarding = () => {
   const navigation = useNavigation();
   // const {
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.btnPress
   },
   containerStyleGoogle: {
-    backgroundColor: 'rgba(112, 92, 254, 0.15)',
+    backgroundColor: 'rgba(254, 114, 76, 0.15)',
     borderColor: Colors.primary,
     borderWidth: 1,
     width: '83%',
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     height: 50
   },
   googleButtonPressed: {
-    backgroundColor: 'rgba(112, 92, 254, 0.25)',
+    backgroundColor: 'rgba(254, 114, 76, 0.25)',
 
   },
   textStyle: {
