@@ -15,20 +15,18 @@ const LessonCard = props => {
 
 const styles = StyleSheet.create({
   items: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.secondaryColor,
     marginVertical: '2%',
     borderRadius: 10,
     marginHorizontal: '7%',
-    borderColor: '#5e0acc',
     justifyContent: 'flex-start',
     elevation: 5,
-    shadowColor: 'black',
+    shadowColor: Colors.secondaryText,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
-    shadowRadius: 3,
+    shadowRadius: 2,
   },
   pressedItem: {
-    backgroundColor: '#F7F7F7',
     borderRadius: 10,
   },
   lectureHeading: {
