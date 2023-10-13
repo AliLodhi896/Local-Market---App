@@ -5,6 +5,9 @@ import Home from '../screens/Home';
 import Subject from '../screens/Subject';
 import LessonDetail from '../screens/LessonDetail';
 import CreateAILesson from '../screens/CreateAILesson';
+import Industries from '../screens/Customer/Industries';
+import Products from '../screens/Customer/Products';
+import ProductDetails from '../screens/Customer/ProductDetails';
 
 
 const MainStack = createStackNavigator();
@@ -49,25 +52,21 @@ export const HomeStack = ({}) => {
   return (
     <MainStack.Navigator screenOptions={defaultStackNavOptions}>
       <MainStack.Screen
-        name="Home"
-        component={Home}
+        name="Industries"
+        component={Industries}
+        options={{headerShown: false}}
+      />
+       <MainStack.Screen
+        name="Products"
+        component={Products}
         options={{headerShown: false}}
       />
       <MainStack.Screen
-        name="Subject"
-        component={Subject}
+        name="ProductDetails"
+        component={ProductDetails}
         options={{headerShown: false}}
       />
-      <MainStack.Screen
-        name="LessonDetail"
-        component={LessonDetail}
-        options={{headerShown: false}}
-      />
-      <MainStack.Screen
-        name="CreateAILesson"
-        component={CreateAILesson}
-        options={{headerShown: false}}
-      />
+
     </MainStack.Navigator>
   );
 };

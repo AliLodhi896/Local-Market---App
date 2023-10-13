@@ -1,8 +1,7 @@
 export default {
-  backgroundColor: '#705CFE',
-  // secondaryBackgroundColor: '#796fff',
+  backgroundColor: '#FE724C',
   secondaryColor: '#fff',
-  primary: '#705CFE',
+  primary: '#FE724C',
   btnPress: '#6250DE',
   primaryText: '#404040',
   secondaryText: 'grey',
