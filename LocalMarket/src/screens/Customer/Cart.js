@@ -43,7 +43,7 @@ const Cart = () => {
             <Text style={styles.txt}>$32.00</Text>
           </View>
         </View>
-        <PrimaryButton title={'Checkout'} containerStyle={styles.containerStyle}/>
+        <PrimaryButton title={'Checkout'} containerStyle={styles.containerStyle} buttonPressed={styles.buttonPressed}/>
       </View>
     </View>
   );
@@ -81,11 +81,13 @@ const styles = StyleSheet.create({
   },
   containerStyle:{
     padding: '4%',
-    borderRadius: 25,
-    alignItems: 'center',
     width: '80%',
     marginTop: '12%',
-    marginLeft: '10%'
+    marginLeft: '10%',
+    
+  },
+  buttonPressed:{
+    backgroundColor: Colors.btnPress
   }
 });
 
