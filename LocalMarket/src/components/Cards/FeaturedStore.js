@@ -4,7 +4,7 @@ import Colors from '../../constant/Colors';
 
 const FeaturedStore = props => {
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={props.onPress}>
       <Image source={props.image} style={{width: '100%', height: '60%'}} />
       <View style={styles.cardContent}>
         <Text style={styles.name}>{props.name}</Text>
@@ -74,14 +74,14 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     marginRight: 20,
   },
-  detailContainer:{
+  detailContainer: {
     backgroundColor: '#f4f4f4',
     marginTop: '2%',
     marginLeft: 4,
     marginRight: 10,
     paddingVertical: 2,
     paddingHorizontal: 6,
-    borderRadius: 4
+    borderRadius: 4,
   },
   secondaryText1: {
     color: 'grey',

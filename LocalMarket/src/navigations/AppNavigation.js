@@ -8,6 +8,7 @@ import CreateAILesson from '../screens/CreateAILesson';
 import Industries from '../screens/Customer/Industries';
 import Products from '../screens/Customer/Products';
 import ProductDetails from '../screens/Customer/ProductDetails';
+import Stores from '../screens/Customer/Stores';
 
 
 const MainStack = createStackNavigator();
@@ -52,8 +53,8 @@ export const HomeStack = ({}) => {
   return (
     <MainStack.Navigator screenOptions={defaultStackNavOptions}>
       <MainStack.Screen
-        name="Industries"
-        component={Industries}
+        name="Stores"
+        component={Stores}
         options={{headerShown: false}}
       />
        <MainStack.Screen

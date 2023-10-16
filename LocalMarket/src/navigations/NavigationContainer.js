@@ -8,9 +8,9 @@ const AppNavigationContainer = () => {
   const {isSignin} = useContext(AuthContext);
   return (
     <NavigationContainer>
-      {isSignin == true ? <HomeStack /> : <AuthStack />}
+      {/* {isSignin == true ? <HomeStack /> : <AuthStack />} */}
       
-        {/* <HomeStack /> */}
+        <HomeStack />
     </NavigationContainer>
   );
 };

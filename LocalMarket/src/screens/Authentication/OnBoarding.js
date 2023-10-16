@@ -47,6 +47,7 @@ const OnBoarding = () => {
         <PrimaryButton
           title={'Sign in'}
           // onPress={() => signIn()}
+          onPress={()=> navigation.navigate('Stores')}
           containerStyle={styles.containerStyle}
           buttonPressed={styles.buttonPressed}
           textStyle1={styles.textStyle1}
