@@ -7,7 +7,7 @@ const Header = props => {
   const navigation = useNavigation();
   return (
     <View style={styles.headerContainer}>
-      <View style={{flexDirection: 'row', marginHorizontal: 20, marginTop: 20,alignItems:'center'}}>
+      <View style={{flexDirection: 'row', marginHorizontal: '5%', marginTop: 20,alignItems:'center'}}>
           <TouchableOpacity style={{width: 30,height: 30 }} onPress={()=>{navigation.goBack()}}> 
             <Image
               source={require('../../assets/icons/left-arrow.png')}
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   txt: {
     fontSize: 32,
     color: Colors.secondaryColor,
-    marginHorizontal: '5%',
+    marginHorizontal: '6%',
     fontWeight: 'bold',
   },
   txt2: {

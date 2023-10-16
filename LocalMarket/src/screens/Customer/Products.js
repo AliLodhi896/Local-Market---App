@@ -7,7 +7,7 @@ import {
   FlatList,
 } from 'react-native';
 import Colors from '../../constant/Colors';
-import {Header, Card, BottomSheet, FloatingButton} from '../../components';
+import {Header, BottomSheet, FloatingButton} from '../../components';
 import {useNavigation} from '@react-navigation/native';
 import CreateAILesson from '../CreateAILesson';
 import FeaturedStore from '../../components/Cards/FeaturedStore';
