@@ -4,20 +4,20 @@ import Colors from '../../constant/Colors';
 import {useController} from 'react-hook-form'
 
 const InputField = forwardRef((props,ref) => {
-  const {field} = useController({
-    control: props.control,
-    defaultValue: props.defaultValue || '',
-    name: props.name,
-    rules: props.rules
-  });
+  // const {field} = useController({
+  //   control: props.control,
+  //   defaultValue: props.defaultValue || '',
+  //   name: props.name,
+  //   rules: props.rules
+  // });
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
           style={[styles.input, props.customStyle]}
-          value={field.value}
-          ref={ref}
-          onChangeText={field.onChange}
+          // value={field.value}
+          // ref={ref}
+          // onChangeText={field.onChange}
           placeholder={props.placeholder}
           placeholderTextColor={props.placeholderTextColor}
           secureTextEntry={props.secureTextEntry}

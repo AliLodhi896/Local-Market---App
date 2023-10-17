@@ -3,7 +3,7 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import {DottedSlider, PrimaryButton} from '../../components';
 import Colors from '../../constant/Colors';
 import {useNavigation} from '@react-navigation/native';
-import Home from '../Home';
+
 
 const Welcome = () => {
   const navigation = useNavigation();
@@ -41,7 +41,7 @@ const Welcome = () => {
         <View style={styles.buttonContainer}>
           <PrimaryButton
             title={'Get Started'}
-            style={{width: '50%'}}
+            style={[width= '50%', styles.btnheight]}
             buttonPressed={styles.buttonPressed}
             onPress={() => navigation.navigate('OnBoarding')}
           />
@@ -69,6 +69,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginHorizontal: 20,
     marginBottom: 20,
+    justifyContent: 'center'
+  },
+  btnheight:{
+    height: 50,
+    padding: '4%'
+    
   },
   txt: {
     fontSize: 32,

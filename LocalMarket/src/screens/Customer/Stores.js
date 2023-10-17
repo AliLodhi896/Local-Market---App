@@ -5,14 +5,14 @@ import {
   View,
   TouchableOpacity,
   FlatList,
+  ScrollView,
 } from 'react-native';
 import Colors from '../../constant/Colors';
-import {Header, BottomSheet, FloatingButton} from '../../components';
+import {Header, Card} from '../../components';
 import {useNavigation} from '@react-navigation/native';
-import CreateAILesson from '../CreateAILesson';
-import FeaturedStore from '../../components/Cards/FeaturedStore';
 
-const Products = () => {
+
+const Stores = () => {
   const navigation = useNavigation();
 
   const [classId, setClassId] = useState(1);
@@ -23,39 +23,17 @@ const Products = () => {
   };
 
   const classes = [
-    {id: 1, name: 'Category 1'},
-    {id: 2, name: 'Category 2'},
-    {id: 3, name: 'Category 3'},
-    {id: 4, name: 'Category 4'},
-    {id: 5, name: 'Category 5'},
+    {id: 1, name: 'Industry 1'},
+    {id: 2, name: 'Industry 2'},
+    {id: 3, name: 'Industry 3'},
+    {id: 4, name: 'Industry 4'},
+    {id: 5, name: 'Industry 5'},
   ];
   const card = [
-    {id: 1, classId: 1, Subject: 'Math'},
-    {id: 2, classId: 1, Subject: 'Eng'},
-    {id: 3, classId: 1, Subject: 'Islamiat'},
-    {id: 4, classId: 1, Subject: 'Islamiat'},
-  ];
-  const stores = [
-    {
-      id: 1,
-      name: 'McDonalds',
-      image: require('../../assets/Images/McDonalds.jpg'),
-    },
-    {
-      id: 2,
-      name: 'Starbucks',
-      image: require('../../assets/Images/Starbucks.jpg'),
-    },
-    {
-      id: 3,
-      name: 'McDonalds',
-      image: require('../../assets/Images/McDonalds.jpg'),
-    },
-    {
-      id: 4,
-      name: 'Starbucks',
-      image: require('../../assets/Images/Starbucks.jpg'),
-    },
+    {id: 1, classId: 1, Subject: 'Store 1'},
+    {id: 2, classId: 2, Subject: 'Store 1'},
+    {id: 3, classId: 1, Subject: 'Store 2'},
+    {id: 4, classId: 1, Subject: 'Store 3'},
   ];
 
   const tabTextStyle = id => {
@@ -68,7 +46,7 @@ const Products = () => {
 
   return (
     <View style={styles.mainContainer}>
-      <Header heading={'Products'} title={'Go back'} description={''} />
+      <Header heading={'Stores'} title={'Go back'} description={''} />
       <View style={styles.internalContainer}>
         <View
           style={{
@@ -101,41 +79,21 @@ const Products = () => {
             }}
           />
         </View>
-
-        <View style={styles.headingContainer}>
-          <Text style={styles.heading2}>Featured Stores</Text>
-          <TouchableOpacity style={styles.textContainer}>
-            <Text style={styles.text}>View All</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.cardContainer}>
-          <FlatList
-            data={stores}
-            // horizontal={true}
-            renderItem={storeItem => {
-              return (
-                <FeaturedStore
-                  key={storeItem.item.id}
-                  name={storeItem.item.name}
-                  image={storeItem.item.image}
+        <ScrollView contentContainerStyle={styles.cardContainer}>
+          {card.map(cardItem => {
+            return (
+              cardItem.classId == classId && (
+                <Card
+                  key={cardItem.id}
+                  title={cardItem.Subject}
                   onPress={() => {
-                    navigation.navigate('ProductDetails');
-                  }}
-                />
-              );
-            }}
-          />
-        </View>
-
-        <FloatingButton
-          createLesson={() => refRBSheet.current.open()}
-          openCreateAI={() => {
-            navigation.navigate(CreateAILesson);
-          }}
-        />
+                    navigation.navigate('Cart');
+                  }}></Card>
+              )
+            );
+          })}
+        </ScrollView>
       </View>
-      <BottomSheet refRBSheet={refRBSheet} classes={classes} subject={card} />
     </View>
   );
 };
@@ -173,9 +131,10 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   cardContainer: {
-    marginHorizontal: '4%',
     flexDirection: 'row',
+    justifyContent: 'center',
+    height: '100%',
   },
 });
 
-export default Products;
+export default Stores;

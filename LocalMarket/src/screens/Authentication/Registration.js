@@ -1,4 +1,5 @@
-import React,{useContext} from 'react';
+import React from 'react';
+
 import {
   StyleSheet,
   View,
@@ -8,33 +9,36 @@ import {
 } from 'react-native';
 import Colors from '../../constant/Colors';
 import {InputField, PrimaryButton} from '../../components';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import {useNavigation} from '@react-navigation/native';
 
 
-const OnBoarding = () => {
-  const navigation = useNavigation();
-  // const {
-  //   control,
-  //   register,
-  //   handleSubmit,
-  //   formState: {errors, isValid},
-  // } = useForm({mode: 'all'});
-
+const Registration = () => {
+    const navigation = useNavigation();
 
   return (
-    <View
-      style={styles.mainContainer}
-    >
+    <View style={styles.mainContainer}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Sign in</Text>
+        <Text style={styles.title}>Sign up</Text>
       </View>
+      <InputField
+        customStyle={styles.customStyle}
+        // control={control}
+        placeholder={'First Name'}
+        placeholderTextColor={Colors.primaryText}
+      />
+      <InputField
+        customStyle={styles.customStyle}
+        // control={control}
+        placeholder={'Last Name'}
+        placeholderTextColor={Colors.primaryText}
+      />
       <InputField
         customStyle={styles.customStyle}
         // control={control}
         placeholder={'Email'}
         placeholderTextColor={Colors.primaryText}
-        keyboardType='email-address'
+        keyboardType="email-address"
       />
       <InputField
         customStyle={styles.customStyle2}
@@ -43,26 +47,31 @@ const OnBoarding = () => {
         placeholderTextColor={Colors.primaryText}
         secureTextEntry={true}
       />
+      <InputField
+        customStyle={styles.customStyle}
+        // control={control}
+        placeholder={'Address'}
+        placeholderTextColor={Colors.primaryText}
+      />
       <View>
         <PrimaryButton
-          title={'Sign in'}
+          title={'Sign up'}
           // onPress={() => signIn()}
-          onPress={()=> navigation.navigate('Stores')}
           containerStyle={styles.containerStyle}
           buttonPressed={styles.buttonPressed}
           textStyle1={styles.textStyle1}
         />
         <Text style={styles.txt}>or</Text>
         <PrimaryButton
-          title={'Sign in with Google'}
+          title={'Sign up with Google'}
           containerStyleGoogle={styles.containerStyleGoogle}
           googleButtonPressed={styles.googleButtonPressed}
           textStyle={styles.textStyle}
         />
         <View style={styles.textContainer}>
-          <Text style={styles.txt2}>Don't have an account?{'  '}</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Registration')}>
-            <Text style={styles.txtSignUp}>Sign up</Text>
+          <Text style={styles.txt2}>Already have an account?{'  '}</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('OnBoarding')}>
+            <Text style={styles.txtSignUp}>Sign in</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -71,12 +80,12 @@ const OnBoarding = () => {
 };
 const styles = StyleSheet.create({
   mainContainer: {
-   flex: 1
+    flex: 1,
   },
   titleContainer: {
-    marginTop: '35%',
+    marginTop: '25%',
     marginHorizontal: '9%',
-    marginBottom: '15%',
+    marginBottom: '10%',
   },
   title: {
     color: Colors.primary,
@@ -92,31 +101,30 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.backgroundColor,
     width: '83%',
     marginHorizontal: '9%',
-    marginTop: '15%',
+    marginTop: '10%',
     marginBottom: '2%',
-    height: 50
+    height: 50,
   },
   buttonPressed: {
-    backgroundColor: Colors.btnPress
+    backgroundColor: Colors.btnPress,
   },
   containerStyleGoogle: {
-    backgroundColor: 'rgba(254, 114, 76, 0.15)',
+    backgroundColor: 'rgba(112, 92, 254, 0.15)',
     borderColor: Colors.primary,
     borderWidth: 1,
     width: '83%',
     marginHorizontal: '9%',
     marginTop: '2%',
-    height: 50
+    height: 50,
   },
   googleButtonPressed: {
-    backgroundColor: 'rgba(254, 114, 76, 0.25)',
-
+    backgroundColor: 'rgba(112, 92, 254, 0.25)',
   },
   textStyle: {
     color: Colors.primary,
   },
-  textStyle1:{
-    fontSize: 18
+  textStyle1: {
+    fontSize: 18,
   },
   textContainer: {
     flexDirection: 'row',
@@ -139,7 +147,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     marginHorizontal: '9%',
-    marginBottom: '5%',
+    // marginBottom: '5%',
     elevation: 4,
   },
   customStyle2: {
@@ -154,4 +162,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OnBoarding;
+export default Registration;

@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
 import Colors from '../../constant/Colors';
-import {Header, BottomSheet, FloatingButton, PrimaryButton,ScrollView} from '../../components';
+import {Header, FloatingButton, PrimaryButton} from '../../components';
 import {useNavigation} from '@react-navigation/native';
 import CreateAILesson from '../CreateAILesson';
 
@@ -74,7 +74,6 @@ const ProductDetails = () => {
           }}
         />
       </View>
-      {/* <BottomSheet refRBSheet={refRBSheet} classes={classes} subject={card}/> */}
     </View>
   );
 };

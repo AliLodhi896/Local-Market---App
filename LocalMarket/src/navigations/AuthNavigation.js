@@ -5,7 +5,8 @@ import Home from '../screens/Home';
 import Subject from '../screens/Subject';
 import { Welcome } from '../screens/Authentication';
 import OnBoarding from '../screens/Authentication/OnBoarding';
-
+import Registration from '../screens/Authentication/Registration';
+import Stores from '../screens/Customer/Stores';
 
 const MainStack = createStackNavigator();
 
@@ -56,6 +57,16 @@ export const AuthStack = ({}) => {
       <MainStack.Screen
         name="OnBoarding"
         component={OnBoarding}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="Stores"
+        component={Stores}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="Registration"
+        component={Registration}
         options={{headerShown: false}}
       />
 

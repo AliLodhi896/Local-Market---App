@@ -3,12 +3,13 @@ import Colors from '../constant/Colors';
 import {createStackNavigator, TransitionSpecs} from '@react-navigation/stack';
 import Home from '../screens/Home';
 import Subject from '../screens/Subject';
-import { Welcome } from '../screens/Authentication';
 import LessonDetail from '../screens/LessonDetail';
 import CreateAILesson from '../screens/CreateAILesson';
 import Industries from '../screens/Customer/Industries';
 import Products from '../screens/Customer/Products';
 import ProductDetails from '../screens/Customer/ProductDetails';
+import Stores from '../screens/Customer/Stores';
+import Cart from '../screens/Customer/Cart';
 
 
 const MainStack = createStackNavigator();
@@ -53,8 +54,8 @@ export const HomeStack = ({}) => {
   return (
     <MainStack.Navigator screenOptions={defaultStackNavOptions}>
       <MainStack.Screen
-        name="Industries"
-        component={Industries}
+        name="Stores"
+        component={Stores}
         options={{headerShown: false}}
       />
        <MainStack.Screen
@@ -65,6 +66,11 @@ export const HomeStack = ({}) => {
       <MainStack.Screen
         name="ProductDetails"
         component={ProductDetails}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="Cart"
+        component={Cart}
         options={{headerShown: false}}
       />
 

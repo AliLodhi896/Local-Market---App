@@ -7,8 +7,8 @@ const Card = (props) => {
     <TouchableOpacity style={styles.card} onPress={props.onPress}>
       <View style={styles.cardContent} >
         <Image
-          source={require('../../assets/icons/classroom.png')}
-          style={{width: '30%', height: '30%'}}
+          source={require('../../assets/Images/Starbucks.jpg')}
+          style={{width: '100%', height: '60%'}}
         />
         <Text style={styles.title}>{props.title}</Text>
       </View>
@@ -18,9 +18,9 @@ const Card = (props) => {
 
 const styles = StyleSheet.create({
   card: {
-    marginHorizontal: '4%',
-    marginTop: '14%',
-    width: '38%',
+    marginHorizontal: '2%',
+    marginTop: '10%',
+    width: '40%',
     height: 150,
     borderRadius: 20,
     backgroundColor: Colors.secondaryColor,
@@ -30,20 +30,21 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
     padding: 6,
+    
   },
   cardContent: {
     backgroundColor: Colors.backgroundColor,
     height: '100%',
     borderRadius: 20,
-    justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
-    marginTop: '8%',
+    marginTop: '10%',
   },
 });
 
