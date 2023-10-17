@@ -10,6 +10,7 @@ import Products from '../screens/Customer/Products';
 import ProductDetails from '../screens/Customer/ProductDetails';
 import Stores from '../screens/Customer/Stores';
 import Cart from '../screens/Customer/Cart';
+import MyOrders from '../screens/Customer/MyOrders';
 
 
 const MainStack = createStackNavigator();
@@ -71,6 +72,11 @@ export const HomeStack = ({}) => {
       <MainStack.Screen
         name="Cart"
         component={Cart}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="My Orders"
+        component={MyOrders}
         options={{headerShown: false}}
       />
 
