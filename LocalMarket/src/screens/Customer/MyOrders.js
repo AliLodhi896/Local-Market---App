@@ -77,11 +77,12 @@ const styles = StyleSheet.create({
   switchableBox: {
     width: '80%',
     flexDirection: 'row',
-    marginVertical: '2%',
+    marginTop: '2%',
     borderWidth: 1,
     borderRadius: 30,
     borderColor: Colors.primary,
-    padding: 2
+    padding: 2,
+    marginBottom: '4%'
   },
 });
 
