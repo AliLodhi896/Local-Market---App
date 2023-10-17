@@ -81,6 +81,7 @@ const Registration = () => {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    backgroundColor: Colors.secondaryColor
   },
   titleContainer: {
     marginTop: '25%',
@@ -103,7 +104,6 @@ const styles = StyleSheet.create({
     marginHorizontal: '9%',
     marginTop: '10%',
     marginBottom: '2%',
-    height: 50,
   },
   buttonPressed: {
     backgroundColor: Colors.btnPress,
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     width: '83%',
     marginHorizontal: '9%',
     marginTop: '2%',
-    height: 50,
   },
   googleButtonPressed: {
     backgroundColor: 'rgba(112, 92, 254, 0.25)',

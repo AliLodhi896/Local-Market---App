@@ -103,7 +103,7 @@ const Products = () => {
         </View>
 
         <View style={styles.headingContainer}>
-          <Text style={styles.heading2}>Featured Stores</Text>
+          <Text style={styles.heading2}>Featured Products</Text>
           <TouchableOpacity style={styles.textContainer}>
             <Text style={styles.text}>View All</Text>
           </TouchableOpacity>
@@ -128,14 +128,8 @@ const Products = () => {
           />
         </View>
 
-        <FloatingButton
-          createLesson={() => refRBSheet.current.open()}
-          openCreateAI={() => {
-            navigation.navigate(CreateAILesson);
-          }}
-        />
+       
       </View>
-      <BottomSheet refRBSheet={refRBSheet} classes={classes} subject={card} />
     </View>
   );
 };
@@ -173,8 +167,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   cardContainer: {
-    marginHorizontal: '4%',
-    flexDirection: 'row',
+    marginHorizontal:20,
   },
 });
 

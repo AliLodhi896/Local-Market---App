@@ -1,9 +1,8 @@
 import React, {useRef} from 'react';
-import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Image, Text, TouchableOpacity, ScrollView} from 'react-native';
 import Colors from '../../constant/Colors';
-import {Header, FloatingButton, PrimaryButton} from '../../components';
+import {Header, PrimaryButton} from '../../components';
 import {useNavigation} from '@react-navigation/native';
-import CreateAILesson from '../CreateAILesson';
 
 const ProductDetails = () => {
   const navigation = useNavigation();
@@ -12,7 +11,7 @@ const ProductDetails = () => {
   return (
     <View style={styles.mainContainer}>
       <Header heading={''} title={'Go back'} description={''} />
-      <View style={styles.internalContainer}>
+      <ScrollView style={styles.internalContainer}>
         <View style={styles.cardContainer}>
           <View style={styles.imageContainer}>
             <Image
@@ -62,18 +61,12 @@ const ProductDetails = () => {
           </Text>
           <PrimaryButton
           title={'Add to Cart'}
-          // onPress={() => signIn()}
+          onPress={() => navigation.navigate('Cart')}
           containerStyle={styles.containerStyle}
           buttonPressed={styles.buttonPressed}
         />
         </View>
-        <FloatingButton
-          createLesson={() => refRBSheet.current.open()}
-          openCreateAI={() => {
-            navigation.navigate(CreateAILesson);
-          }}
-        />
-      </View>
+      </ScrollView>
     </View>
   );
 };
@@ -87,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondaryColor,
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,
-    height: '92%',
+    height: '85%',
     paddingBottom: 20,
   },
   cardContainer: {

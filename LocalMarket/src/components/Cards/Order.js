@@ -16,7 +16,7 @@ const Order = (props) => {
                     <Text style={styles.price}>$15.00</Text>
                 </View>
                 </View>
-                <Text style={styles.storeName}>Zinger Burger</Text>
+                <Text style={styles.storeName}>Order</Text>
                 <View style={styles.statusContainer}>
                     <View style={styles.dot}>
 
@@ -35,7 +35,7 @@ const Order = (props) => {
 const styles = StyleSheet.create({
     cardContainer:{
         width: '90%',
-        height: '24%',
+        height: '15%',
         elevation: 8,
         shadowColor: Colors.primaryText,
         shadowOffset: {width: 0, height: 2},
@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
       },
       logoContainer:{
         width: '24%',
-        height: '55%',
         backgroundColor: 'white',
         elevation: 8,
         shadowColor: Colors.primaryText,

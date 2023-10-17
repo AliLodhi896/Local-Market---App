@@ -21,7 +21,7 @@ const PrimaryButton = props => {
 const styles = StyleSheet.create({
   buttonContainer: {
     backgroundColor: Colors.primary,
-    // padding: '4%',
+    padding: '4%',
     borderRadius: 25,
     alignItems: 'center',
     width: '100%',

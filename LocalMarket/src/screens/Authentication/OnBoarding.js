@@ -10,9 +10,11 @@ import Colors from '../../constant/Colors';
 import {InputField, PrimaryButton} from '../../components';
 import { useForm } from 'react-hook-form';
 import {useNavigation} from '@react-navigation/native';
+import { AuthContext } from '../../context/Context';
 
 
 const OnBoarding = () => {
+  const {setIsSignin} = useContext(AuthContext);
   const navigation = useNavigation();
   // const {
   //   control,
@@ -46,14 +48,15 @@ const OnBoarding = () => {
       <View>
         <PrimaryButton
           title={'Sign in'}
-          // onPress={() => signIn()}
-          onPress={()=> navigation.navigate('Stores')}
+          onPress={() => setIsSignin(true)}
+          // onPress={()=> navigation.navigate('Stores')}
           containerStyle={styles.containerStyle}
           buttonPressed={styles.buttonPressed}
           textStyle1={styles.textStyle1}
         />
         <Text style={styles.txt}>or</Text>
         <PrimaryButton
+        // onPress={()=>setSign}
           title={'Sign in with Google'}
           containerStyleGoogle={styles.containerStyleGoogle}
           googleButtonPressed={styles.googleButtonPressed}
@@ -71,7 +74,8 @@ const OnBoarding = () => {
 };
 const styles = StyleSheet.create({
   mainContainer: {
-   flex: 1
+   flex: 1,
+   backgroundColor:Colors.secondaryColor
   },
   titleContainer: {
     marginTop: '35%',
@@ -94,7 +98,6 @@ const styles = StyleSheet.create({
     marginHorizontal: '9%',
     marginTop: '15%',
     marginBottom: '2%',
-    height: 50
   },
   buttonPressed: {
     backgroundColor: Colors.btnPress
@@ -106,7 +109,6 @@ const styles = StyleSheet.create({
     width: '83%',
     marginHorizontal: '9%',
     marginTop: '2%',
-    height: 50
   },
   googleButtonPressed: {
     backgroundColor: 'rgba(254, 114, 76, 0.25)',

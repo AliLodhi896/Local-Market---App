@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   switchableBox: {
     width: '80%',
     flexDirection: 'row',
-    marginVertical: '10%',
+    marginVertical: '2%',
     borderWidth: 1,
     borderRadius: 30,
     borderColor: Colors.primary,

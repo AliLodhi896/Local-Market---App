@@ -8,12 +8,27 @@ const Header = props => {
   return (
     <View style={styles.headerContainer}>
       <View style={{flexDirection: 'row', marginHorizontal: '5%', marginTop: 20,alignItems:'center'}}>
-          <TouchableOpacity style={{width: 30,height: 30 }} onPress={()=>{navigation.goBack()}}> 
+      {props.secondary == false ?
+          <TouchableOpacity style={{width: 30,height: 30,
+            borderRadius:10,
+            padding:2,
+            backgroundColor:Colors.backgroundColor,
+            
+          }} onPress={()=>{navigation.openDrawer()}}> 
             <Image
-              source={require('../../assets/icons/left-arrow.png')}
+              source={require('../../assets/icons/menu.png')}
               style={{width: '100%', height: '100%'}}
             />
            </TouchableOpacity>
+           :
+           <TouchableOpacity style={{width: 30,height: 30 }} onPress={()=>{navigation.goBack()}}> 
+            <Image
+              source={require('../../assets/icons/left.png')}
+              style={{width: '100%', height: '100%'}}
+            />
+           </TouchableOpacity>
+          }
+
         <Text style={styles.headerTitle}>{props.title}</Text>
       </View>
       <View style={{marginTop: '3%'}}>

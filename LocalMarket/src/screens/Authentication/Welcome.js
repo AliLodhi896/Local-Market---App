@@ -32,10 +32,10 @@ const Welcome = () => {
         <Text style={styles.txt}>
           Let's start{' '}
           <Text style={{fontWeight: '900', color: Colors.primary}}>
-            Growing
+            to Book
           </Text>{' '}
           your{' '}
-          <Text style={{fontWeight: '900', color: Colors.primary}}>Skill</Text>
+          <Text style={{fontWeight: '900', color: Colors.primary}}>Orders</Text>
         </Text>
         <DottedSlider slides={slides} />
         <View style={styles.buttonContainer}>

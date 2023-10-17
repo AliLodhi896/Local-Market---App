@@ -41,9 +41,8 @@ const FeaturedStore = props => {
 
 const styles = StyleSheet.create({
   card: {
-    marginHorizontal: '2%',
     marginTop: 10,
-    width: '78%',
+    width: '100%',
     height: 210,
     borderRadius: 12,
     backgroundColor: Colors.secondaryColor,

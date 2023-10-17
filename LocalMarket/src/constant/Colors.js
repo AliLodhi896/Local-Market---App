@@ -5,5 +5,6 @@ export default {
   btnPress: '#E86845',
   primaryText: '#404040',
   secondaryText: 'grey',
+  green: '#029094',
   
 };

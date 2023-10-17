@@ -10,6 +10,8 @@ import {
 import Colors from '../../constant/Colors';
 import {Header, Card} from '../../components';
 import {useNavigation} from '@react-navigation/native';
+import { DrawerAnimationPage } from '../../components/animationconstant/DrawerAnimationPage';
+import Animated from 'react-native-reanimated';
 
 
 const Stores = () => {
@@ -31,9 +33,10 @@ const Stores = () => {
   ];
   const card = [
     {id: 1, classId: 1, Subject: 'Store 1'},
+    {id: 1, classId: 1, Subject: 'Store 1'},
+    {id: 1, classId: 1, Subject: 'Store 1'},
     {id: 2, classId: 2, Subject: 'Store 1'},
     {id: 3, classId: 1, Subject: 'Store 2'},
-    {id: 4, classId: 1, Subject: 'Store 3'},
   ];
 
   const tabTextStyle = id => {
@@ -43,10 +46,11 @@ const Stores = () => {
       color: id === classId ? Colors.secondaryColor : Colors.primary,
     };
   };
+  const animatedStyle = DrawerAnimationPage();
 
   return (
-    <View style={styles.mainContainer}>
-      <Header heading={'Stores'} title={'Go back'} description={''} />
+    <Animated.View  style={[styles.container(animatedStyle), styles.mainContainer]} >
+      <Header secondary={false} heading={'Stores'} title={'Go back'} description={''} />
       <View style={styles.internalContainer}>
         <View
           style={{
@@ -79,7 +83,7 @@ const Stores = () => {
             }}
           />
         </View>
-        <ScrollView contentContainerStyle={styles.cardContainer}>
+        <ScrollView  contentContainerStyle={styles.cardContainer}>
           {card.map(cardItem => {
             return (
               cardItem.classId == classId && (
@@ -87,14 +91,14 @@ const Stores = () => {
                   key={cardItem.id}
                   title={cardItem.Subject}
                   onPress={() => {
-                    navigation.navigate('My Orders');
+                    navigation.navigate('Products');
                   }}></Card>
               )
             );
           })}
         </ScrollView>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 const styles = StyleSheet.create({
@@ -102,7 +106,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.backgroundColor,
     justifyContent: 'space-between',
+    elevation: 20,
+    shadowColor: 'black',
+    shadowOffset: {width: 2, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
+  container: animatedStyle => ({
+    ...animatedStyle,
+    flex: 1,
+  }),
   internalContainer: {
     backgroundColor: Colors.secondaryColor,
     borderTopRightRadius: 30,
@@ -134,6 +147,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     height: '100%',
+    flexWrap: 'wrap',
   },
 });
 

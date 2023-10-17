@@ -1,16 +1,21 @@
 import React,{useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import { HomeStack } from './AppNavigation';
+import  {AppBottomTab}  from './AppNavigation';
 import { AuthContext } from '../context/Context';
 import { AuthStack } from './AuthNavigation';
 
 const AppNavigationContainer = () => {
   const {isSignin} = useContext(AuthContext);
+  const MyTheme = {
+    colors: {
+      background: 'transparent',
+    },
+  };
   return (
-    <NavigationContainer>
-      {/* {isSignin == true ? <HomeStack /> : <AuthStack />} */}
+    <NavigationContainer  theme={MyTheme}>
+      {isSignin == true ? <AppBottomTab /> : <AuthStack />}
       
-        <HomeStack />
+        {/* <AppBottomTab /> */}
     </NavigationContainer>
   );
 };
