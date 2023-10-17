@@ -32,18 +32,20 @@ const Cart = () => {
             <Text style={styles.txt}>Subtotal</Text>
             <Text style={styles.txt}>$31.00</Text>
           </View>
-
           <View style={styles.txtRow}>
             <Text style={styles.txt}>Delivery</Text>
             <Text style={styles.txt}>$1.00</Text>
           </View>
-
           <View style={styles.txtRow}>
             <Text style={styles.txt}>Total</Text>
             <Text style={styles.txt}>$32.00</Text>
           </View>
         </View>
-        <PrimaryButton title={'Checkout'} containerStyle={styles.containerStyle} buttonPressed={styles.buttonPressed}/>
+        <PrimaryButton
+          title={'Checkout'}
+          containerStyle={styles.containerStyle}
+          buttonPressed={styles.buttonPressed}
+        />
       </View>
     </View>
   );
@@ -62,33 +64,32 @@ const styles = StyleSheet.create({
     height: '85%',
     paddingBottom: 20,
   },
-  priceDetails:{
+  priceDetails: {
     marginHorizontal: '7%',
-    marginTop: '12%'
+    marginTop: '12%',
   },
-  txtRow:{
+  txtRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 24,
     borderBottomWidth: 1,
     borderBottomColor: 'lightgrey',
-    paddingBottom: 10
+    paddingBottom: 10,
   },
-  txt:{
+  txt: {
     color: Colors.primaryText,
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
-  containerStyle:{
+  containerStyle: {
     padding: '4%',
     width: '80%',
     marginTop: '12%',
     marginLeft: '10%',
-    
   },
-  buttonPressed:{
-    backgroundColor: Colors.btnPress
-  }
+  buttonPressed: {
+    backgroundColor: Colors.btnPress,
+  },
 });
 
 export default Cart;

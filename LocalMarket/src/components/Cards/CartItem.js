@@ -11,19 +11,20 @@ import Colors from '../../constant/Colors';
 
 const CartItem = props => {
   return (
-    <View style={styles.items}>
+    <View style={styles.mainContainer}>
       <Pressable
         style={({pressed}) => pressed && styles.pressedItem}
         onPress={props.onPress}>
-        <View style={styles.name}>
+        <View style={styles.subContainer}>
           <View style={styles.imageContainer}>
             <Image
-              source={require('../../assets/Images/McDonalds.jpg')}
+              source={require('../../assets/Images/Zinger.jpg')}
               style={{width: '100%', height: '100%'}}
             />
           </View>
           <View>
-            <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.itemName}>{props.productName}</Text>
               <TouchableOpacity style={styles.cancelBtn}>
                 <Image
@@ -71,20 +72,19 @@ const CartItem = props => {
 };
 
 const styles = StyleSheet.create({
-  items: {
+  mainContainer: {
     backgroundColor: Colors.secondaryColor,
-    // marginVertical: '5%',
     borderRadius: 10,
     marginHorizontal: '7%',
     justifyContent: 'flex-start',
     height: '15%',
     flexDirection: 'row',
-    marginTop: '10%'
+    marginTop: '10%',
   },
   pressedItem: {
     borderRadius: 10,
   },
-  name: {
+  subContainer: {
     flexDirection: 'row',
   },
   imageContainer: {

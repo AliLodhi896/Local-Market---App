@@ -87,7 +87,7 @@ const Stores = () => {
                   key={cardItem.id}
                   title={cardItem.Subject}
                   onPress={() => {
-                    navigation.navigate('Cart');
+                    navigation.navigate('My Orders');
                   }}></Card>
               )
             );
