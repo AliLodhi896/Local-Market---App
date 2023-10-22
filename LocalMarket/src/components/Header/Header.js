@@ -31,7 +31,7 @@ const Header = props => {
 
         <Text style={styles.headerTitle}>{props.title}</Text>
       </View>
-      <View style={{marginTop: '3%'}}>
+      <View style={{marginTop: '1%'}}>
         <Text style={styles.txt}>{props.heading}</Text>
         <Text style={styles.txt2}>{props.description}</Text>
       </View>

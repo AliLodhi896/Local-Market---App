@@ -106,6 +106,7 @@ import Stores from '../screens/Customer/Stores';
 import Cart from '../screens/Customer/Cart';
 import MyOrders from '../screens/Customer/MyOrders';
 import Icons from '../constant/Icons';
+import Notification from '../screens/Settings/Notification';
 
 //******SCREEN********* */
 
@@ -207,6 +208,12 @@ export const HomeStack = ({navigation}) => {
         component={MyOrders}
         options={{headerShown: false}}
       />
+      <MainStack.Screen
+        name="Notification"
+        component={Notification}
+        options={{headerShown: false}}
+      />
+
 
     </MainStack.Navigator>
   );
@@ -265,7 +272,7 @@ const TabArr = [
         color={Colors.secondaryColor}
       />
     ),
-    component: Products,
+    component: Notification,
   },
   // {
   //   route: 'Notification',
