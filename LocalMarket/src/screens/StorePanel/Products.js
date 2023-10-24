@@ -7,6 +7,7 @@ import Icons from '../../constant/Icons';
 import {useNavigation} from '@react-navigation/native';
 
 
+
 const Products = () => {
   const navigation = useNavigation();
 
@@ -21,24 +22,33 @@ const Products = () => {
             name={'Zinger'}
             price={'15.00'}
             stock={'Avalaible'}
+            editIcon={require('../../assets/icons/edit2.png')}
+            onPress={() => {
+              navigation.navigate('CustomHeaderScreen');
+            }}
           />
           <Order
             image={require('../../assets/Images/Zinger.jpg')}
             date={'25 june 2023'}
-            price={'15.00'}
             name={'Zinger'}
+            price={'15.00'}
             stock={'Avalaible'}
+            editIcon={require('../../assets/icons/edit2.png')}
+            onPress={() => {
+              navigation.navigate('CustomHeaderScreen');
+            }}
           />
-          
           <Order
             image={require('../../assets/Images/Zinger.jpg')}
             date={'25 june 2023'}
-            price={'15.00'}
             name={'Zinger'}
+            price={'15.00'}
             stock={'Avalaible'}
+            editIcon={require('../../assets/icons/edit2.png')}
+            onPress={() => {
+              navigation.navigate('CustomHeaderScreen');
+            }}
           />
-          
-          
         </>
       </View>
       <TouchableOpacity
@@ -57,11 +67,14 @@ const Products = () => {
           shadowOpacity: 0.2,
           shadowRadius: 5,
           elevation: 2,
-        
         }}
-        onPress={()=>navigation.navigate('ProductAdd')}
-        >
-        <Icons icon_type={'Entypo'} name={'plus'} size={30} color={Colors.secondaryColor} />
+        onPress={() => navigation.navigate('ProductAdd')}>
+        <Icons
+          icon_type={'Entypo'}
+          name={'plus'}
+          size={30}
+          color={Colors.secondaryColor}
+        />
       </TouchableOpacity>
     </View>
   );

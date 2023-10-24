@@ -30,6 +30,7 @@ import Profile from '../screens/StorePanel/Profile';
 import Dashboard from '../screens/StorePanel/Dashboard';
 import Products from '../screens/StorePanel/Products';
 import ProductAdd from '../screens/StorePanel/ProductAdd';
+import ProductEdit from '../screens/StorePanel/ProductEdit';
 
 //******SCREEN********* */
 
@@ -139,6 +140,11 @@ export const HomeStack = ({navigation}) => {
       <MainStack.Screen
         name="ProductAdd"
         component={ProductAdd}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="ProductEdit"
+        component={ProductEdit}
         options={{headerShown: false}}
       />
 

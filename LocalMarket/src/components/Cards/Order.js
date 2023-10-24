@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Colors from '../../constant/Colors';
 
 const Order = props => {
@@ -19,10 +19,18 @@ const Order = props => {
           </View>
         </View>
         <Text style={styles.storeName}>{props.name}</Text>
-        <View style={styles.statusContainer}>
-          <View style={styles.dot}></View>
-          <Text style={styles.status}>{props.stock}</Text>
-        </View>
+          <View style={styles.statusContainer}>
+            <View style={styles.dot}></View>
+              <Text style={styles.status}>{props.stock}</Text>
+              
+              
+          </View>
+          <View style={styles.editIconContainer}>
+            <TouchableOpacity onPress={props.onPress}>
+              <Image source={props.editIcon} style={{width: '100%', height: '100%'}}/>
+            </TouchableOpacity>
+          </View>
+        
       </View>
     </View>
   );
@@ -87,6 +95,12 @@ const styles = StyleSheet.create({
     color: '#4EE476',
     marginLeft: 4,
   },
+  editIconContainer:{
+    width: 16,
+    height: 16,
+    marginLeft: '74%',
+    bottom: 20
+  }
 });
 
 export default Order;

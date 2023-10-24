@@ -5,12 +5,14 @@ import {
   View,
   TouchableOpacity,
   FlatList,
+  ScrollView,
 } from 'react-native';
 import Colors from '../../constant/Colors';
 import {Header, BottomSheet, FloatingButton} from '../../components';
 import {useNavigation} from '@react-navigation/native';
 import CreateAILesson from '../CreateAILesson';
 import FeaturedStore from '../../components/Cards/FeaturedStore';
+import ProductCard from '../../components/Cards/ProductCard';
 
 const Products = () => {
   const navigation = useNavigation();
@@ -38,23 +40,27 @@ const Products = () => {
   const stores = [
     {
       id: 1,
-      name: 'McDonalds',
-      image: require('../../assets/Images/McDonalds.jpg'),
+      name: 'Zinger',
+      price: '$15.00',
+      image: require('../../assets/Images/zinger2.png'),
     },
     {
       id: 2,
-      name: 'Starbucks',
-      image: require('../../assets/Images/Starbucks.jpg'),
+      name: 'Zinger',
+      price: '$15.00',
+      image: require('../../assets/Images/zinger2.png'),
     },
     {
       id: 3,
-      name: 'McDonalds',
-      image: require('../../assets/Images/McDonalds.jpg'),
+      name: 'Zinger',
+      price: '$15.00',
+      image: require('../../assets/Images/zinger2.png'),
     },
     {
       id: 4,
-      name: 'Starbucks',
-      image: require('../../assets/Images/Starbucks.jpg'),
+      name: 'Zinger',
+      price: '$15.00',
+      image: require('../../assets/Images/zinger2.png'),
     },
   ];
 
@@ -109,28 +115,58 @@ const Products = () => {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.cardContainer}>
+        <View style={styles.cardContainerNew}>
+          <ProductCard
+            image={require('../../assets/Images/zinger2.png')}
+            name={'Zinger'}
+            price={'$15.00'}
+          />
+          <ProductCard
+            image={require('../../assets/Images/zinger2.png')}
+            name={'Zinger'}
+            price={'$15.00'}
+          />
+          <ProductCard
+            image={require('../../assets/Images/zinger2.png')}
+            name={'Zinger'}
+            price={'$15.00'}
+          />
+          <ProductCard
+            image={require('../../assets/Images/zinger2.png')}
+            name={'Zinger'}
+            price={'$15.00'}
+          />
+          <ProductCard
+            image={require('../../assets/Images/zinger2.png')}
+            name={'Zinger'}
+            price={'$15.00'}
+          />
+    </View> 
+
+        {/* <View style={styles.cardContainer}>
           <FlatList
             data={stores}
-            // horizontal={true}
             renderItem={storeItem => {
               return (
-                <FeaturedStore
+                <ProductCard
                   key={storeItem.item.id}
-                  name={storeItem.item.name}
                   image={storeItem.item.image}
-                  onPress={() => {
-                    navigation.navigate('ProductDetails');
-                  }}
+                  name={storeItem.item.name}
+                  price={storeItem.item.price}
+                  
                 />
+                
               );
             }}
           />
-        </View>
+        </View> */}
 
        
       </View>
     </View>
+
+ 
+
   );
 };
 const styles = StyleSheet.create({
@@ -168,7 +204,16 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     marginHorizontal:20,
+    height: '100%',
+    backgroundColor: 'black',
+    flexDirection: 'row'
   },
+  cardContainerNew: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
+  }
 });
 
 export default Products;

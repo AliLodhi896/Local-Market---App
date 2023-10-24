@@ -16,7 +16,7 @@ const AppNavigationContainer = () => {
     <NavigationContainer  theme={MyTheme}>
       {/* {isSignin == true ? <AppBottomTab /> : <AuthStack />} */}
       
-        <StoreBottomTab />
+        <AppBottomTab />
     </NavigationContainer>
   );
 };
