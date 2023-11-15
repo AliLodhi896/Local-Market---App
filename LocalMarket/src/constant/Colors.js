@@ -1,5 +1,5 @@
 export default {
-  backgroundColor: '#FE724C',
+  backgroundColor: '#F4f4f4',
   secondaryColor: '#fff',
   primary: '#FE724C',
   btnPress: '#E86845',

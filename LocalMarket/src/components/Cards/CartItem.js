@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Colors from '../../constant/Colors';
+import Icons from '../../constant/Icons';
 
 const CartItem = props => {
   return (
@@ -27,10 +28,12 @@ const CartItem = props => {
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.itemName}>{props.productName}</Text>
               <TouchableOpacity style={styles.cancelBtn}>
-                <Image
-                  source={require('../../assets/icons/close.png')}
-                  style={{width: '100%', height: '100%'}}
-                />
+              <Icons
+                    icon_type={'AntDesign'}
+                    name={'close'}
+                    size={20}
+                    color={Colors.green}
+                  />
               </TouchableOpacity>
             </View>
             <Text style={styles.txt2}>{props.additional}</Text>
@@ -44,24 +47,37 @@ const CartItem = props => {
                     borderRadius: 100,
                     height: 25,
                     width: 25,
-                    padding: 10,
                     borderWidth: 1,
                     borderColor: Colors.primary,
-                  }}></TouchableOpacity>
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <Icons
+                    icon_type={'AntDesign'}
+                    name={'minus'}
+                    size={20}
+                    color={Colors.green}
+                  />
+                </TouchableOpacity>
                 <Text style={styles.qtyText}>02</Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: Colors.primary,
+                    backgroundColor: Colors.secondaryColor,
                     borderRadius: 100,
                     height: 25,
                     width: 25,
-                    padding: 10,
-                    elevation: 8,
-                    shadowColor: Colors.primary,
-                    shadowOffset: {width: 0, height: 2},
-                    shadowOpacity: 0.2,
-                    shadowRadius: 2,
-                  }}></TouchableOpacity>
+                    borderWidth: 1,
+                    borderColor: Colors.primary,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <Icons
+                    icon_type={'AntDesign'}
+                    name={'plus'}
+                    size={20}
+                    color={Colors.green}
+                  />
+                </TouchableOpacity>
               </View>
             </View>
           </View>
@@ -77,9 +93,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginHorizontal: '7%',
     justifyContent: 'flex-start',
-    height: '15%',
+    height: 100,
     flexDirection: 'row',
-    marginTop: '10%',
+    marginTop: 10,
+    padding: 10,
   },
   pressedItem: {
     borderRadius: 10,
@@ -106,8 +123,8 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   cancelBtn: {
-    width: '5%',
-    height: '34%',
+    width: 20,
+    height: 20,
     right: 34,
     marginTop: 4,
   },

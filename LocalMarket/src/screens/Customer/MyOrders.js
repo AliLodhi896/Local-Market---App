@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {Header} from '../../components';
+import {Header, PrimaryHeader} from '../../components';
 import Colors from '../../constant/Colors';
 import Order from '../../components/Cards/Order';
 
@@ -8,7 +8,10 @@ const MyOrders = () => {
   const [selectedTab, setselectedTab] = useState(true);
   return (
     <View style={styles.mainContainer}>
-      <Header heading={'My Orders'} title={'Go back'} description={''} />
+           <Header
+        title={'Go back'}
+        heading={'Local Market'}
+      />
       <View style={styles.internalContainer}>
         <View style={styles.switchableBox}>
           <TouchableOpacity
@@ -47,13 +50,32 @@ const MyOrders = () => {
             </Text>
           </TouchableOpacity>
         </View>
+
         {selectedTab == true ? (
           <>
-            <Order image={require('../../assets/Images/Zinger.jpg')} />
-            <Order image={require('../../assets/Images/Zinger.jpg')} />
+            <Order
+              image={require('../../assets/Images/Zinger.jpg')}
+              name={'Order 1'}
+              price={'10'}
+              stock={'Completed'}
+              date={'20 JUNE 2023'}
+            />
+            <Order
+              image={require('../../assets/Images/Zinger.jpg')}
+              name={'Order 1'}
+              price={'10'}
+              stock={'Completed'}
+              date={'20 JUNE 2023'}
+            />
           </>
         ) : (
-          <Order image={require('../../assets/Images/KfcZinger.jpg')} />
+          <Order
+            image={require('../../assets/Images/Zinger.jpg')}
+            name={'Order 1'}
+            price={'10'}
+            stock={'Completed'}
+            date={'20 JUNE 2023'}
+          />
         )}
       </View>
     </View>
@@ -64,14 +86,8 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
-    justifyContent: 'space-between',
   },
   internalContainer: {
-    backgroundColor: Colors.secondaryColor,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    height: '85%',
-    paddingBottom: 20,
     alignItems: 'center',
   },
   switchableBox: {
@@ -82,7 +98,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderColor: Colors.primary,
     padding: 2,
-    marginBottom: '4%'
+    marginBottom: '4%',
   },
 });
 

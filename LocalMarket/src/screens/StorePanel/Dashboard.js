@@ -3,12 +3,11 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
-  FlatList,
+  Image,
   ScrollView,
 } from 'react-native';
 import Colors from '../../constant/Colors';
-import {Header, Card} from '../../components';
+import {Header, Card, DashboardCard, PrimaryHeader, SecondaryHeader} from '../../components';
 import {useNavigation} from '@react-navigation/native';
 import {DrawerAnimationPage} from '../../components/animationconstant/DrawerAnimationPage';
 import Animated from 'react-native-reanimated';
@@ -17,8 +16,10 @@ const Dashboard = () => {
   const navigation = useNavigation();
 
   const card = [
-    {id: 1, classId: 1, Subject: 'Total Products', total: 100},
-    {id: 1, classId: 1, Subject: 'Total Orders', total: 20},
+    {id: 1, classId: 1, Subject: '20 Products', total: 100,image:require('../../assets/icons/products.png')},
+    {id: 1, classId: 1, Subject: '10 Active Orders', total: 20,image:require('../../assets/icons/completed-task.png')},
+    {id: 1, classId: 1, Subject: '5 Completed Orders', total: 20,image:require('../../assets/icons/document.png')},
+    {id: 1, classId: 1, Subject: '1 Cancelled Orders', total: 20,image:require('../../assets/icons/delivery-cancelled.png')},
   ];
 
   const animatedStyle = DrawerAnimationPage();
@@ -26,23 +27,30 @@ const Dashboard = () => {
   return (
     <Animated.View
       style={[styles.container(animatedStyle), styles.mainContainer]}>
-      <Header
-        secondary={false}
-        heading={'Store dashboard'}
-        title={'Go back'}
-        description={''}
-      />
+      <SecondaryHeader title={'Go back'} heading={'Local Market'} />
       <View style={styles.internalContainer}>
+       <View style={{marginHorizontal:20,alignItems:'center',justifyContent:'center',marginTop:20}}>
+        <View style={{height:100,width:100,alignItems:'center'}}>
+            <Image
+              source={require('../../assets/Logo/Starbucks.png')}
+              style={{width: '100%', height: '100%'}}
+            />
+          </View>
+       </View>
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {card.map(cardItem => {
             return (
-              <Card
+              <DashboardCard
                 key={cardItem.id}
                 dashboard={true}
                 title={cardItem.Subject}
                 total={cardItem.total}
+                image={cardItem?.image}
                 onPress={() => {
                   // navigation.navigate('Products');/
+                }}
+                style={{
+                  width: '45%',
                 }}
               />
             );
@@ -56,23 +64,14 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
-    justifyContent: 'space-between',
-    elevation: 20,
-    shadowColor: 'black',
-    shadowOffset: {width: 2, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
   },
   container: animatedStyle => ({
     ...animatedStyle,
     flex: 1,
   }),
   internalContainer: {
-    backgroundColor: Colors.secondaryColor,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    height: '85%',
-    paddingBottom: 20,
+    backgroundColor: Colors.backgroundColor,
+    marginTop:20
   },
   headingContainer: {
     flexDirection: 'row',

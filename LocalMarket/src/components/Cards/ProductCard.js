@@ -1,17 +1,20 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Colors from '../../constant/Colors';
+import Icons from '../../constant/Icons';
 
 const ProductCard = props => {
   return (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity onPress={props.onPress} style={styles.cardContainer}>
       <View style={styles.imageContainer}>
         <Image source={props.image} style={{width: '100%', height: '100%'}} />
       </View>
       <TouchableOpacity style={styles.cartIconContainer}>
-        <Image
-          source={require('..//../assets/icons/cart1.png')}
-          style={{width: '100%', height: '100%'}}
+        <Icons
+          icon_type={'FontAwesome5'}
+          name={'shopping-cart'}
+          size={20}
+          color={Colors.green}
         />
       </TouchableOpacity>
       <View style={styles.addsubContainer}>
@@ -21,24 +24,37 @@ const ProductCard = props => {
             borderRadius: 100,
             height: 25,
             width: 25,
-            padding: 10,
             borderWidth: 1,
             borderColor: Colors.primary,
-          }}></TouchableOpacity>
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Icons
+            icon_type={'AntDesign'}
+            name={'minus'}
+            size={20}
+            color={Colors.green}
+          />
+        </TouchableOpacity>
         <Text style={styles.qtyText}>02</Text>
         <TouchableOpacity
           style={{
-            backgroundColor: Colors.primary,
+            backgroundColor: Colors.secondaryColor,
             borderRadius: 100,
             height: 25,
             width: 25,
-            padding: 10,
-            elevation: 8,
-            shadowColor: Colors.primary,
-            shadowOffset: {width: 0, height: 2},
-            shadowOpacity: 0.2,
-            shadowRadius: 2,
-          }}></TouchableOpacity>
+            borderWidth: 1,
+            borderColor: Colors.primary,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Icons
+            icon_type={'AntDesign'}
+            name={'plus'}
+            size={20}
+            color={Colors.green}
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.detailContainer}>
         <View
@@ -51,14 +67,14 @@ const ProductCard = props => {
           <Text style={styles.price}>{props.price}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   cardContainer: {
-    width: '40%',
-    height: '40%',
+    width: 180,
+    height: 200,
     elevation: 8,
     shadowColor: Colors.primaryText,
     shadowOffset: {width: 0, height: 2},
@@ -109,7 +125,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondaryColor,
     borderRadius: 6,
     top: 10,
-    left: 100,
+    left: 140,
     position: 'absolute',
   },
   addsubContainer: {

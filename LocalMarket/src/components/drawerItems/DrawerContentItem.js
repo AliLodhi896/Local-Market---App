@@ -11,7 +11,7 @@ const DrawerContentItem = ({
   iconSize,
   label,
   focused,
-  onPress
+  onPress,
 }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container(focused)}>
@@ -19,7 +19,7 @@ const DrawerContentItem = ({
         name={iconName}
         size={iconSize}
         icon_type={iconType}
-        color={focused ? '#fff' : '#fff'}
+        color={focused ? Colors.secondaryColor : Colors.secondaryColor}
       />
       <Text style={styles.textStyle(focused)}>{label}</Text>
     </TouchableOpacity>
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: verticalScale(8),
   }),
-  textStyle: ( focused) => ({
+  textStyle: focused => ({
     fontSize: scale(14),
     paddingLeft: scale(5),
     color: focused ? Colors.secondaryColor : Colors.secondaryColor,
-    fontWeight:'bold'
+    fontWeight: 'bold',
   }),
 });

@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import Colors from '../../constant/Colors';
-import {Header, Card} from '../../components';
+import {Header, Card, PrimaryHeader} from '../../components';
 import {useNavigation} from '@react-navigation/native';
 import { DrawerAnimationPage } from '../../components/animationconstant/DrawerAnimationPage';
 import Animated from 'react-native-reanimated';
@@ -16,9 +16,7 @@ import Animated from 'react-native-reanimated';
 
 const Stores = () => {
   const navigation = useNavigation();
-
   const [classId, setClassId] = useState(1);
-  const refRBSheet = useRef(null);
 
   const saveClassIdHandler = id => {
     setClassId(id);
@@ -50,7 +48,7 @@ const Stores = () => {
 
   return (
     <Animated.View  style={[styles.container(animatedStyle), styles.mainContainer]} >
-      <Header secondary={false} heading={'Stores'} title={'Go back'} description={''} />
+      <PrimaryHeader title={'Go back'} heading={'Local Market'} />
       <View style={styles.internalContainer}>
         <View
           style={{
@@ -71,7 +69,7 @@ const Stores = () => {
                     paddingHorizontal: 9,
                     paddingVertical: 6,
                     backgroundColor:
-                      itemData.item.id === classId ? Colors.btnPress : 'white',
+                      itemData.item.id === classId ? Colors.btnPress : Colors.backgroundColor,
                     borderRadius: itemData.item.id === classId ? 8 : 0,
                   }}
                   onPress={() => saveClassIdHandler(itemData.item.id)}>
@@ -88,6 +86,7 @@ const Stores = () => {
             return (
               cardItem.classId == classId && (
                 <Card
+                  dashboard={false}
                   key={cardItem.id}
                   title={cardItem.Subject}
                   onPress={() => {
@@ -105,7 +104,6 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
-    justifyContent: 'space-between',
     elevation: 20,
     shadowColor: 'black',
     shadowOffset: {width: 2, height: 2},
@@ -117,11 +115,10 @@ const styles = StyleSheet.create({
     flex: 1,
   }),
   internalContainer: {
-    backgroundColor: Colors.secondaryColor,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    height: '85%',
+    backgroundColor: Colors.backgroundColor,
     paddingBottom: 20,
+    marginHorizontal:20,
+    marginTop:20
   },
   headingContainer: {
     flexDirection: 'row',
@@ -146,8 +143,8 @@ const styles = StyleSheet.create({
   cardContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    height: '100%',
     flexWrap: 'wrap',
+    marginBottom:30
   },
 });
 

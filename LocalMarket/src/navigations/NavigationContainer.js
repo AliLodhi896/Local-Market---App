@@ -4,19 +4,22 @@ import  {AppBottomTab}  from './AppNavigation';
 import { AuthContext } from '../context/Context';
 import { AuthStack } from './AuthNavigation';
 import { StoreBottomTab } from './StoreNavigation';
+import Colors from '../constant/Colors';
 
 const AppNavigationContainer = () => {
   const {isSignin} = useContext(AuthContext);
   const MyTheme = {
     colors: {
-      background: 'transparent',
+      background: Colors.primary,
     },
   };
   return (
     <NavigationContainer  theme={MyTheme}>
-      {/* {isSignin == true ? <AppBottomTab /> : <AuthStack />} */}
+      {/* {isSignin == false &&   <AuthStack />}
+      {isSignin == true && role == 'Customer' && <AppBottomTab />}
+      {isSignin == true && role == 'Store' && <AppBottomTab />} */}
       
-        <AppBottomTab />
+        <StoreBottomTab />
     </NavigationContainer>
   );
 };

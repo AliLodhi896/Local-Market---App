@@ -37,7 +37,7 @@ const Welcome = () => {
           your{' '}
           <Text style={{fontWeight: '900', color: Colors.primary}}>Orders</Text>
         </Text>
-        <DottedSlider slides={slides} />
+        <DottedSlider slides={slides}  />
         <View style={styles.buttonContainer}>
           <PrimaryButton
             title={'Get Started'}
@@ -72,8 +72,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   btnheight:{
-    height: 50,
-    padding: '4%'
     
   },
   txt: {

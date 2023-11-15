@@ -7,12 +7,6 @@ import Colors from './src/constant/Colors';
 
 const App = () => {
   return (
-    // <OnBoarding/>
-    // <Welcome/>
-    // <>
-    // <Home />
-    // </>
-    // <Subject/>
     <AuthProvider>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}

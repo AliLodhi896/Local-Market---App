@@ -5,88 +5,124 @@ import {
   View,
   TouchableOpacity,
   Text,
-  ImageBackground,
+  Image,
+  ScrollView,
 } from 'react-native';
 import Colors from '../../constant/Colors';
 import {InputField, PrimaryButton} from '../../components';
 import {useForm} from 'react-hook-form';
 import {useNavigation} from '@react-navigation/native';
 
-
 const Registration = () => {
-    const navigation = useNavigation();
+  const {
+    control,
+    handleSubmit,
+    formState: {errors, isValid},
+  } = useForm({mode: 'all'});
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Sign up</Text>
-      </View>
-      <InputField
-        customStyle={styles.customStyle}
-        // control={control}
-        placeholder={'First Name'}
-        placeholderTextColor={Colors.primaryText}
-      />
-      <InputField
-        customStyle={styles.customStyle}
-        // control={control}
-        placeholder={'Last Name'}
-        placeholderTextColor={Colors.primaryText}
-      />
-      <InputField
-        customStyle={styles.customStyle}
-        // control={control}
-        placeholder={'Email'}
-        placeholderTextColor={Colors.primaryText}
-        keyboardType="email-address"
-      />
-      <InputField
-        customStyle={styles.customStyle2}
-        // control={control}
-        placeholder={'Password'}
-        placeholderTextColor={Colors.primaryText}
-        secureTextEntry={true}
-      />
-      <InputField
-        customStyle={styles.customStyle}
-        // control={control}
-        placeholder={'Address'}
-        placeholderTextColor={Colors.primaryText}
-      />
-      <View>
-        <PrimaryButton
-          title={'Sign up'}
-          // onPress={() => signIn()}
-          containerStyle={styles.containerStyle}
-          buttonPressed={styles.buttonPressed}
-          textStyle1={styles.textStyle1}
+    <ScrollView style={styles.mainContainer}>
+      <View
+        style={{
+          paddingHorizontal: 20,
+          backgroundColor: Colors.backgroundColor,
+          flex: 1,
+        }}>
+        <View
+          style={{
+            width: '100%',
+            height: '40%',
+            alignItems: 'center',
+          }}>
+          <Image
+            source={require('../../assets/Images/welcomeImage.png')}
+            style={{width: '100%', height: '100%'}}
+          />
+        </View>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Sign up</Text>
+        </View>
+
+        <InputField
+          name="Full Name"
+          control={control}
+          lable={'Full Name'}
+          rules={{
+            required: 'Full Name is required',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'Invalid Full Name',
+            },
+          }}
+          placeholder="Enter your Full Name..."
         />
-        <Text style={styles.txt}>or</Text>
-        <PrimaryButton
-          title={'Sign up with Google'}
-          containerStyleGoogle={styles.containerStyleGoogle}
-          googleButtonPressed={styles.googleButtonPressed}
-          textStyle={styles.textStyle}
+        <InputField
+          name="Email Address"
+          control={control}
+          lable={'Email Address'}
+          rules={{
+            required: 'Email Address is required',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'Invalid Email Address',
+            },
+          }}
+          placeholder="Enter your Email Address..."
         />
-        <View style={styles.textContainer}>
-          <Text style={styles.txt2}>Already have an account?{'  '}</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('OnBoarding')}>
-            <Text style={styles.txtSignUp}>Sign in</Text>
-          </TouchableOpacity>
+        <InputField
+          name="Password"
+          control={control}
+          lable={'Password'}
+          rules={{
+            required: 'Password is required',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'Invalid Password',
+            },
+          }}
+          placeholder="Enter your Password..."
+        />
+        <InputField
+          name="Address"
+          control={control}
+          lable={'Address'}
+          rules={{
+            required: 'Address is required',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'Invalid Address',
+            },
+          }}
+          placeholder="Enter your Address..."
+        />
+        <View>
+          <PrimaryButton
+            title={'Sign up'}
+            // onPress={() => signIn()}
+            containerStyle={styles.containerStyle}
+            buttonPressed={styles.buttonPressed}
+            textStyle1={styles.textStyle1}
+          />
+          <View style={styles.textContainer}>
+            <Text style={styles.txt2}>Already have an account?{'  '}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('OnBoarding')}>
+              <Text style={styles.txtSignUp}>Sign in</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: Colors.secondaryColor
+    backgroundColor: Colors.backgroundColor,
   },
   titleContainer: {
-    marginTop: '25%',
-    marginHorizontal: '9%',
-    marginBottom: '10%',
+    marginBottom: '2%',
+    marginTop:20
   },
   title: {
     color: Colors.primary,
@@ -99,7 +135,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   containerStyle: {
-    backgroundColor: Colors.backgroundColor,
+    backgroundColor: Colors.primary,
     width: '83%',
     marginHorizontal: '9%',
     marginTop: '10%',

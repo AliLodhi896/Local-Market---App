@@ -27,6 +27,9 @@ import Cart from '../screens/Customer/Cart';
 import MyOrders from '../screens/Customer/MyOrders';
 import Icons from '../constant/Icons';
 import Notification from '../screens/Settings/Notification';
+import Industries from '../screens/Customer/Industries';
+import ProductLists from '../screens/Customer/ProductLists';
+import UserProfile from '../screens/Settings/UserProfile';
 
 //******SCREEN********* */
 
@@ -43,7 +46,7 @@ export default function DrawerNavigation() {
             flex: 1,
             width: '70%',
             paddingRight: 20,
-            backgroundColor: 'transparent',
+            backgroundColor: Colors.primary,
           },
           statusBarColor: Colors.primary,
           overlayColor: 'transparent',
@@ -103,7 +106,12 @@ export const HomeStack = ({navigation}) => {
 
   return (
     <MainStack.Navigator screenOptions={defaultStackNavOptions}>
-           <MainStack.Screen
+           {/* <MainStack.Screen
+        name="Industries"
+        component={Industries}
+        options={{headerShown: false}}
+      /> */}
+                 <MainStack.Screen
         name="Stores"
         component={Stores}
         options={{headerShown: false}}
@@ -111,6 +119,11 @@ export const HomeStack = ({navigation}) => {
        <MainStack.Screen
         name="Products"
         component={Products}
+        options={{headerShown: false}}
+      />
+        <MainStack.Screen
+        name="ProductLists"
+        component={ProductLists}
         options={{headerShown: false}}
       />
       <MainStack.Screen
@@ -121,6 +134,11 @@ export const HomeStack = ({navigation}) => {
       <MainStack.Screen
         name="Cart"
         component={Cart}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="UserProfile"
+        component={UserProfile}
         options={{headerShown: false}}
       />
       <MainStack.Screen
@@ -148,7 +166,7 @@ const TabArr = [
         name={'home'}
         size={25}
         icon_type={'FontAwesome5'}
-        color={Colors.secondaryColor}
+        color={Colors.green}
       />
     ),
     component: DrawerNavigation,
@@ -161,7 +179,7 @@ const TabArr = [
         name={'shopping-cart'}
         size={25}
         icon_type={'FontAwesome5'}
-        color={Colors.secondaryColor}
+        color={Colors.green}
       />
     ),
     component: Cart,
@@ -175,7 +193,7 @@ const TabArr = [
         name={'shopping-bag'}
         size={25}
         icon_type={'Entypo'}
-        color={Colors.secondaryColor}
+        color={Colors.green}
       />
     ),
     component: MyOrders,
@@ -189,7 +207,7 @@ const TabArr = [
         name={'bell-alt'}
         size={25}
         icon_type={'Fontisto'}
-        color={Colors.secondaryColor}
+        color={Colors.green}
       />
     ),
     component: Notification,
@@ -295,7 +313,7 @@ const TabIcon = ({isFocused, tabIcon, label, index}) => {
       </Animated.View>
       <Text
         style={{
-          color: isFocused ? Colors.primary : Colors.secondary,
+          color: isFocused ? Colors.primary : Colors.green,
           fontSize: 12,
           fontWeight: 500,
         }}>
@@ -353,11 +371,11 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 40,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.backgroundColor,
     position: 'absolute',
     bottom: 25,
-    borderWidth: 4,
-    borderColor: Colors.secondaryColor,
+    borderWidth: 2,
+    borderColor: Colors.primary,
   },
 });
 

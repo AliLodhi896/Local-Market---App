@@ -4,25 +4,25 @@ import Colors from '../../constant/Colors';
 import {useController} from 'react-hook-form'
 
 const InputField = forwardRef((props,ref) => {
-  // const {field} = useController({
-  //   control: props.control,
-  //   defaultValue: props.defaultValue || '',
-  //   name: props.name,
-  //   rules: props.rules
-  // });
+  const {field} = useController({
+    control: props.control,
+    defaultValue: props.defaultValue || '',
+    name: props.name,
+    rules: props.rules
+  });
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
       <View>
-          <Text style={{fontSize:14,color:Colors.primaryText,textAlign:'left',marginHorizontal:20,marginBottom:10}}>
+          <Text style={{fontSize:16,color:Colors.primaryText,textAlign:'left',marginBottom:10}}>
             {props.lable}
           </Text>
         </View>
         <TextInput
           style={[styles.input, props.customStyle]}
-          // value={field.value}
-          // ref={ref}
-          // onChangeText={field.onChange}
+          value={field.value}
+          ref={ref}
+          onChangeText={field.onChange}
           placeholder={props.placeholder}
           placeholderTextColor={props.placeholderTextColor}
           secureTextEntry={props.secureTextEntry}
@@ -45,23 +45,23 @@ const InputField = forwardRef((props,ref) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    marginTop:10
   },
   inputContainer: {
     flex: 1,
-    marginTop: '5%',
     // backgroundColor: Colors.primary,
   },
   input: {
     borderRadius: 10,
-    padding: 10,
     color: Colors.green,
+    height: 50,
     fontWeight: '500',
     backgroundColor: Colors.secondaryColor,
     elevation: 4,
     shadowColor: 'black',
     shadowOffset: {width: 0, height: 4},
-    marginHorizontal: 20,
-
+    paddingLeft:10,
+    fontSize:16
   },
   imgContainer: {
     backgroundColor: Colors.primary,

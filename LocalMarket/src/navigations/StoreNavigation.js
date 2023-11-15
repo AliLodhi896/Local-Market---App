@@ -31,6 +31,7 @@ import Dashboard from '../screens/StorePanel/Dashboard';
 import Products from '../screens/StorePanel/Products';
 import ProductAdd from '../screens/StorePanel/ProductAdd';
 import ProductEdit from '../screens/StorePanel/ProductEdit';
+import UserProfile from '../screens/Settings/UserProfile';
 
 //******SCREEN********* */
 
@@ -47,7 +48,7 @@ export default function DrawerNavigation() {
             flex: 1,
             width: '70%',
             paddingRight: 20,
-            backgroundColor: 'transparent',
+            backgroundColor: Colors.primary,
           },
           statusBarColor: Colors.primary,
           overlayColor: 'transparent',
@@ -112,6 +113,11 @@ export const HomeStack = ({navigation}) => {
         component={Dashboard}
         options={{headerShown: false}}
       />
+                 <MainStack.Screen
+        name="UserProfile"
+        component={UserProfile}
+        options={{headerShown: false}}
+      />
        <MainStack.Screen
         name="Products"
         component={Products}
@@ -161,7 +167,7 @@ const TabArr = [
         name={'home'}
         size={25}
         icon_type={'FontAwesome5'}
-        color={Colors.secondaryColor}
+        color={Colors.green}
       />
     ),
     component: DrawerNavigation,
@@ -174,7 +180,7 @@ const TabArr = [
         name={'shopping-cart'}
         size={25}
         icon_type={'FontAwesome5'}
-        color={Colors.secondaryColor}
+        color={Colors.green}
       />
     ),
     component: Products,
@@ -188,25 +194,39 @@ const TabArr = [
         name={'shopping-bag'}
         size={25}
         icon_type={'Entypo'}
-        color={Colors.secondaryColor}
+        color={Colors.green}
       />
     ),
     component: MyOrders,
-  }
-  ,
+  },
+ 
+  
   {
-    route: 'Profile',
-    lable: 'Profile',
+    route: 'Notification',
+    lable: 'Notification',
     icon: (
       <Icons
         name={'bell-alt'}
         size={25}
         icon_type={'Fontisto'}
-        color={Colors.secondaryColor}
+        color={Colors.green}
+      />
+    ),
+    component: Notification,
+  },
+  {
+    route: 'Profile',
+    lable: 'Profile',
+    icon: (
+      <Icons
+        name={'user'}
+        size={25}
+        icon_type={'AntDesign'}
+        color={Colors.green}
       />
     ),
     component: Profile,
-  },
+  }
 ];
 
 const {width} = Dimensions.get('window');
@@ -308,7 +328,7 @@ const TabIcon = ({isFocused, tabIcon, label, index}) => {
       </Animated.View>
       <Text
         style={{
-          color: isFocused ? Colors.primary : Colors.secondary,
+          color: isFocused ? Colors.primary : Colors.green,
           fontSize: 12,
           fontWeight: 500,
         }}>
@@ -366,11 +386,11 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 40,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.backgroundColor,
     position: 'absolute',
     bottom: 25,
     borderWidth: 4,
-    borderColor: Colors.secondaryColor,
+    borderColor: Colors.primary,
   },
 });
 

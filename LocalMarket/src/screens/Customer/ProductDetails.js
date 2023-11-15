@@ -1,8 +1,16 @@
 import React, {useRef} from 'react';
-import {StyleSheet, View, Image, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import Colors from '../../constant/Colors';
-import {Header, PrimaryButton} from '../../components';
+import {Header, PrimaryButton, PrimaryHeader} from '../../components';
 import {useNavigation} from '@react-navigation/native';
+import Icons from '../../constant/Icons';
 
 const ProductDetails = () => {
   const navigation = useNavigation();
@@ -10,7 +18,10 @@ const ProductDetails = () => {
 
   return (
     <View style={styles.mainContainer}>
-      <Header heading={''} title={'Go back'} description={''} />
+           <Header
+        title={'Go back'}
+        heading={'Local Market'}
+      />
       <ScrollView style={styles.internalContainer}>
         <View style={styles.cardContainer}>
           <View style={styles.imageContainer}>
@@ -24,47 +35,62 @@ const ProductDetails = () => {
           <View style={styles.priceContainer}>
             <Text style={styles.priceText}>$9.20</Text>
             <View style={styles.addsubContainer}>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: Colors.secondaryColor,
-                  borderRadius: 100,
-                  height: 30,
-                  width: 30,
-                  padding: 10,
-                  borderWidth: 1,
-                  borderColor: Colors.primary,
-                }}></TouchableOpacity>
+            <TouchableOpacity
+          style={{
+            backgroundColor: Colors.backgroundColor,
+            borderRadius: 100,
+            height: 25,
+            width: 25,
+            borderWidth: 1,
+            borderColor: Colors.primary,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Icons
+            icon_type={'AntDesign'}
+            name={'minus'}
+            size={20}
+            color={Colors.green}
+          />
+        </TouchableOpacity>
               <Text style={styles.qtyText}>02</Text>
               <TouchableOpacity
-                style={{
-                  backgroundColor: Colors.primary,
-                  borderRadius: 100,
-                  height: 30,
-                  width: 30,
-                  padding: 10,
-                }}></TouchableOpacity>
+          style={{
+            backgroundColor: Colors.backgroundColor,
+            borderRadius: 100,
+            height: 25,
+            width: 25,
+            borderWidth: 1,
+            borderColor: Colors.primary,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Icons
+            icon_type={'AntDesign'}
+            name={'plus'}
+            size={20}
+            color={Colors.green}
+          />
+        </TouchableOpacity>
             </View>
           </View>
           <Text style={styles.descriptionText}>
             Brown the beef better. Lean ground beef – I like to use 85% lean
             angus. Garlic – use fresh chopped. Spices – chili powder, cumin,
-            onion powder.
-            Brown the beef better. Lean ground beef – I like to use 85% lean
-            angus. Garlic – use fresh chopped. Spices – chili powder, cumin,
-            onion powder.
-            Brown the beef better. Lean ground beef – I like to use 85% lean
-            angus. Garlic – use fresh chopped. Spices – chili powder, cumin,
-            onion powder.'
-            Brown the beef better. Lean ground beef – I like to use 85% lean
-            angus. Garlic – use fresh chopped. Spices – chili powder, cumin,
-            onion powder.'
+            onion powder. Brown the beef better. Lean ground beef – I like to
+            use 85% lean angus. Garlic – use fresh chopped. Spices – chili
+            powder, cumin, onion powder. Brown the beef better. Lean ground beef
+            – I like to use 85% lean angus. Garlic – use fresh chopped. Spices –
+            chili powder, cumin, onion powder.' Brown the beef better. Lean
+            ground beef – I like to use 85% lean angus. Garlic – use fresh
+            chopped. Spices – chili powder, cumin, onion powder.'
           </Text>
           <PrimaryButton
-          title={'Add to Cart'}
-          onPress={() => navigation.navigate('Cart')}
-          containerStyle={styles.containerStyle}
-          buttonPressed={styles.buttonPressed}
-        />
+            title={'Add to Cart'}
+            onPress={() => navigation.navigate('Cart')}
+            containerStyle={styles.containerStyle}
+            buttonPressed={styles.buttonPressed}
+          />
         </View>
       </ScrollView>
     </View>
@@ -74,14 +100,10 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
-    justifyContent: 'space-between',
   },
   internalContainer: {
-    backgroundColor: Colors.secondaryColor,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    height: '85%',
-    paddingBottom: 20,
+    backgroundColor: Colors.backgroundColor,
+    marginTop:20
   },
   cardContainer: {
     height: '100%',
@@ -126,13 +148,11 @@ const styles = StyleSheet.create({
     lineHeight: 30,
   },
   containerStyle: {
-    backgroundColor: Colors.backgroundColor,
     width: '100%',
     marginTop: '15%',
     marginBottom: '2%',
   },
-  buttonPressed: {
-  },
+  buttonPressed: {},
 });
 
 export default ProductDetails;

@@ -7,6 +7,7 @@ import {
   BottomSheet,
   FloatingButton,
   LessonCard,
+  PrimaryHeader,
 } from '../../components';
 import {useNavigation} from '@react-navigation/native';
 import Subject from '../Subject';
@@ -29,11 +30,7 @@ const Industries = () => {
 
   return (
     <View style={styles.mainContainer}>
-      <Header
-        heading={'Industries'}
-        title={'Go back'}
-        description={''}
-      />
+    <PrimaryHeader title={'Go back'} heading={'Local Market'} />
       <View style={styles.internalContainer}>
         <View
           style={{
@@ -72,13 +69,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
-    justifyContent: 'space-between',
   },
   internalContainer: {
-    backgroundColor: Colors.secondaryColor,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    height: '85%',
+    backgroundColor: Colors.backgroundColor,
     paddingBottom: 20,
   },
   cardContainer: {

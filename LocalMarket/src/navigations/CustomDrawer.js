@@ -25,7 +25,7 @@ const CustomDrawer = () => {
     try {
       const result = await Share.share({
         message:
-          'Im inviting you to download ShifaNow app to find, book and consult Pakistan’s best doctors. Click here for download: ' +
+          'Im inviting you to download Local Market app. Click here for download: ' +
           'https://testflight.apple.com/join/Glh3Igm0',
       });
       if (result.action === Share.sharedAction) {
@@ -73,11 +73,11 @@ const CustomDrawer = () => {
               fontWeight: 'bold',
               fontSize: 16
             }}>
-           Faraz Ali
+           User Name
          
           </Text>
           <Text style={{color: Colors.secondaryColor, fontWeight: 'bold'}}>
-          lodhiali787@gmail.com
+         xyz@domain.com
           </Text>
         </View>
 

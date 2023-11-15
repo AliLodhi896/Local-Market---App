@@ -36,7 +36,7 @@ const NotificationCard = () => {
 const styles = StyleSheet.create({
     mainContainer: {
     width: '90%',
-    height: '16%',
+    height: '18%',
     elevation: 4,
     shadowColor: Colors.primaryText,
     shadowOffset: {width: 0, height: 2},
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 10,
     paddingLeft: '4%'
+
   },
   pressedItem: {
     backgroundColor: '#f9f9f9'
