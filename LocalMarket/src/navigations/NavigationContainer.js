@@ -19,7 +19,7 @@ const AppNavigationContainer = () => {
       {isSignin == true && role == 'Customer' && <AppBottomTab />}
       {isSignin == true && role == 'Store' && <AppBottomTab />} */}
       
-        <StoreBottomTab />
+        <AppBottomTab />
     </NavigationContainer>
   );
 };

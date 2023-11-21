@@ -86,10 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.backgroundColor,
   },
   internalContainer: {
-    backgroundColor: Colors.secondaryColor,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    height: '85%',
+    backgroundColor: Colors.backgroundColor,
     paddingBottom: 20,
   },
   headingContainer: {

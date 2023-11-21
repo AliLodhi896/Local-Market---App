@@ -8,17 +8,17 @@ import Colors from '../constant/Colors';
 // import Toast from 'react-native-toast-message';
 
 const CustomDrawer = () => {
-//   const {
-//     userDetails,
-//     isSignin,
-//     setAuth,
-//     setuserDetails,
-//     setuserToken,
-//     setIsSignin,
-//     userToken,
-//     role,
-//     setRole
-//   } = useContext(AuthContext);
+  //   const {
+  //     userDetails,
+  //     isSignin,
+  //     setAuth,
+  //     setuserDetails,
+  //     setuserToken,
+  //     setIsSignin,
+  //     userToken,
+  //     role,
+  //     setRole
+  //   } = useContext(AuthContext);
   const navigation = useNavigation();
 
   const onShare = async () => {
@@ -42,20 +42,20 @@ const CustomDrawer = () => {
     }
   };
 
-//   const Logout = async () => {
-//     const signOut = await user_signout(userToken);
-//     if (signOut?.success == true) {
-//       setModalVisible(false);
-//       Toast.show({
-//         type: 'success',
-//         text1: 'Successfully Logout',
-//       });
-//       setuserDetails([]);
-//       setuserToken(null);
-//       setRole(null)
-//       setIsSignin(false);
-//     }
-//   };
+  //   const Logout = async () => {
+  //     const signOut = await user_signout(userToken);
+  //     if (signOut?.success == true) {
+  //       setModalVisible(false);
+  //       Toast.show({
+  //         type: 'success',
+  //         text1: 'Successfully Logout',
+  //       });
+  //       setuserDetails([]);
+  //       setuserToken(null);
+  //       setRole(null)
+  //       setIsSignin(false);
+  //     }
+  //   };
 
   return (
     <DrawerContentScrollView scrollEnabled={true} style={{flex: 1}}>
@@ -71,37 +71,62 @@ const CustomDrawer = () => {
               color: Colors.secondaryColor,
               marginBottom: 10,
               fontWeight: 'bold',
-              fontSize: 16
+              fontSize: 16,
             }}>
-           User Name
-         
+            User Name
           </Text>
           <Text style={{color: Colors.secondaryColor, fontWeight: 'bold'}}>
-         xyz@domain.com
+            xyz@domain.com
           </Text>
         </View>
-
         <View style={styles.drawerItemContainer}>
-          
-          
-          <DrawerContentItem
-            iconName={'text-document-inverted'}
+        
+        <DrawerContentItem
+            iconName={'shopping-bag'}
             iconType={'Entypo'}
-            label={'Terms & Conditions'}
+            label={'Orders'}
+            iconSize={18}
+            onPress={() => navigation.navigate('TermsConditon')}
+          />
+          <DrawerContentItem
+            iconName={'user'}
+            iconType={'Entypo'}
+            label={'Profile'}
+            iconSize={18}
+            onPress={() => navigation.navigate('TermsConditon')}
+          />
+          <DrawerContentItem
+            iconName={'bell'}
+            iconType={'FontAwesome'}
+            label={'Notifications'}
+            iconSize={18}
+            onPress={() => navigation.navigate('TermsConditon')}
+          />
+          <DrawerContentItem
+            iconName={'contact-support'}
+            iconType={'MaterialIcons'}
+            label={'Customer Support & FAQ'}
             iconSize={18}
             onPress={() => navigation.navigate('TermsConditon')}
           />
           <DrawerContentItem
             iconName={'policy'}
             iconType={'MaterialIcons'}
+            label={'Terms & Conditions'}
+            iconSize={18}
+            onPress={() => navigation.navigate('TermsConditon')}
+          />
+          <DrawerContentItem
+            iconName={'privacy-tip'}
+            iconType={'MaterialIcons'}
             label={'Privacy Policy'}
             iconSize={18}
             onPress={() => navigation.navigate('PrivacyPolicy')}
           />
           <DrawerContentItem
-            iconName={'sharealt'}
+            iconName={'logout'}
             iconType={'AntDesign'}
-            label={'Tell a Friend'}
+            label={'Logout'}
             iconSize={18}
             onPress={() => onShare()}
           />
