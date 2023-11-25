@@ -4,7 +4,7 @@ import Swiper from 'react-native-swiper';
 
 const DottedSlider = ({slides, image,style}) => {
   return (
-    <Swiper showsButtons={false} style={{borderRadius:20}} autoplay={true}>
+    <Swiper showsButtons={false} autoplay={true}>
       {slides.map((slide, index) => (
         <View
           key={index}

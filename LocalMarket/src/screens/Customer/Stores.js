@@ -60,7 +60,6 @@ const Stores = () => {
           <FlatList
             data={classes}
             horizontal={true}
-            showsHorizontalScrollIndicator={false}
             renderItem={itemData => {
               return (
                 <TouchableOpacity

@@ -29,7 +29,7 @@ const MyOrders = () => {
                 fontSize: 16,
                 textAlign: 'center',
               }}>
-              New
+              Upcoming
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -42,11 +42,11 @@ const MyOrders = () => {
             }}>
             <Text
               style={{
-                color: selectedTab == true ? Colors.primary : Colors.secondaryColor,
+                color: selectedTab == true ? Colors.primary : Colors.secondary,
                 fontSize: 16,
                 textAlign: 'center',
               }}>
-              Past
+              History
             </Text>
           </TouchableOpacity>
         </View>
@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
   },
   internalContainer: {
     alignItems: 'center',
-    paddingHorizontal:20
   },
   switchableBox: {
     width: '80%',
@@ -100,7 +99,6 @@ const styles = StyleSheet.create({
     borderColor: Colors.primary,
     padding: 2,
     marginBottom: '4%',
-    marginTop:40
   },
 });
 

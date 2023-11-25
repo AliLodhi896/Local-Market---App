@@ -84,11 +84,15 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
+    justifyContent: 'space-between',
   },
   internalContainer: {
-    backgroundColor: Colors.backgroundColor,
+    backgroundColor: Colors.secondaryColor,
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
+    height: '85%',
     paddingBottom: 20,
-    paddingHorizontal:20
+    alignItems: 'center',
   },
   switchableBox: {
     width: '80%',

@@ -38,7 +38,7 @@ const Order = props => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    width: '100%',
+    width: '90%',
     height: 100,
     elevation: 8,
     shadowColor: Colors.primaryText,

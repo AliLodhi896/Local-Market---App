@@ -29,15 +29,13 @@ const Dashboard = () => {
       style={[styles.container(animatedStyle), styles.mainContainer]}>
       <SecondaryHeader title={'Go back'} heading={'Local Market'} />
       <View style={styles.internalContainer}>
-       <View style={{marginHorizontal:20}}>
-       <Text style={styles.sectionHeading}>Welcome</Text>
-        <Text style={styles.sectionHeading}>To Store Name</Text>
-        {/* <View style={{height:100,width:100,alignItems:'center',borderRadius:100}}>
+       <View style={{marginHorizontal:20,alignItems:'center',justifyContent:'center',marginTop:20}}>
+        <View style={{height:100,width:100,alignItems:'center'}}>
             <Image
               source={require('../../assets/Logo/Starbucks.png')}
-              style={{width: '100%', height: '100%',borderRadius:100}}
+              style={{width: '100%', height: '100%'}}
             />
-          </View> */}
+          </View>
        </View>
         <ScrollView contentContainerStyle={styles.cardContainer}>
           {card.map(cardItem => {
@@ -57,29 +55,8 @@ const Dashboard = () => {
               />
             );
           })}
-          
         </ScrollView>
-        <Text
-          style={{
-            fontSize: 12,
-            color: Colors.primaryText,
-            textAlign: 'center',
-            marginTop: 10,
-          }}>
-          2023 @ Local Market. All rights reserved
-        </Text>
-        <Text
-          style={{
-            fontSize: 12,
-            color: Colors.primaryText,
-            textAlign: 'center',
-            fontWeight: 'bold',
-            marginTop: 10,
-          }}>
-          Terms & Condtions
-        </Text>
       </View>
-      
     </Animated.View>
   );
 };
@@ -119,19 +96,9 @@ const styles = StyleSheet.create({
   cardContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
+    height: '100%',
     flexWrap: 'wrap',
     paddingHorizontal: 20,
-    paddingBottom:40
-  },
-  sectionHeading: {
-    fontSize: 34,
-    color: Colors.primaryText,
-    fontWeight: '500',
-  },
-  sectionDescription: {
-    fontSize: 18,
-    color: Colors.primaryText,
-    fontWeight: '500',
   },
 });
 

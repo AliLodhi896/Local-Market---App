@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 40,
     paddingHorizontal: 20,
     paddingTop: 20,
-    height: '30%',
+    height: '40%',
   },
   buttonContainer: {
     marginHorizontal: 20,
