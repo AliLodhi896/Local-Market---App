@@ -2,7 +2,7 @@
 import DottedSlider from './Slider/DottedSlider';
 
 // Header
-import Header from './Header/Header';
+import PrimaryHeader from './Header/PrimaryHeader';
 
 // Buttons
 import PrimaryButton from './Button/PrimaryButton';
@@ -12,9 +12,11 @@ import BottomSheet from './BottomSheets/BottomSheet';
 // Cards
 import LessonCard from './Cards/LessonCard';
 import Card from './Cards/Card';
+import CategoryCard from './Cards/CategoryCard';
 
 // InputField
 import InputField from './InputField/InputField';
+import CodeInput from './InputField/CodeInput';
 
 
-export {DottedSlider, PrimaryButton, FloatingButton, BottomSheet, LessonCard, Card, Header, InputField};
+export {CategoryCard,CodeInput,DottedSlider, PrimaryButton, FloatingButton, BottomSheet, LessonCard, Card, PrimaryHeader, InputField};

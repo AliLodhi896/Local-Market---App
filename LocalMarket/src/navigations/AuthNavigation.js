@@ -7,6 +7,7 @@ import { Welcome } from '../screens/Authentication';
 import OnBoarding from '../screens/Authentication/OnBoarding';
 import Registration from '../screens/Authentication/Registration';
 import Stores from '../screens/Customer/Stores';
+import VerifyOtp from '../screens/Authentication/VerifyOtp';
 
 const MainStack = createStackNavigator();
 
@@ -57,6 +58,11 @@ export const AuthStack = ({}) => {
       <MainStack.Screen
         name="OnBoarding"
         component={OnBoarding}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="VerifyOtp"
+        component={VerifyOtp}
         options={{headerShown: false}}
       />
       <MainStack.Screen

@@ -1,25 +1,30 @@
 import React, {forwardRef} from 'react';
-import { StyleSheet, TextInput, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, TextInput, View, TouchableOpacity, Image,Text } from 'react-native';
 import Colors from '../../constant/Colors';
 import {useController} from 'react-hook-form'
 
 const InputField = forwardRef((props,ref) => {
-  // const {field} = useController({
-  //   control: props.control,
-  //   defaultValue: props.defaultValue || '',
-  //   name: props.name,
-  //   rules: props.rules
-  // });
+  const {field} = useController({
+    control: props.control,
+    defaultValue: props.defaultValue || '',
+    name: props.name,
+    rules: props.rules
+  });
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
+      <View>
+          <Text style={{fontSize:14,color:Colors.primaryText,textAlign:'left',marginBottom:4}}>
+            {props.lable}
+          </Text>
+        </View>
         <TextInput
           style={[styles.input, props.customStyle]}
-          // value={field.value}
-          // ref={ref}
-          // onChangeText={field.onChange}
+          value={field.value}
+          ref={ref}
+          onChangeText={field.onChange}
           placeholder={props.placeholder}
-          placeholderTextColor={props.placeholderTextColor}
+          placeholderTextColor={Colors.secondaryText}
           secureTextEntry={props.secureTextEntry}
           keyboardType={props.keyboardType}
           multiline={props.multiline}
@@ -40,23 +45,18 @@ const InputField = forwardRef((props,ref) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
   },
   inputContainer: {
     flex: 1,
-    marginTop: '5%',
     // backgroundColor: Colors.primary,
   },
   input: {
-    borderRadius: 10,
-    padding: 15,
-    fontSize: 16,
+    borderRadius: 6,
+    padding: 10,
     color: Colors.primaryText,
-    fontWeight: '500',
     backgroundColor: Colors.secondaryColor,
-    elevation: 4,
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 4},
+    borderWidth:1,
+    borderColor:Colors.lightText
   },
   imgContainer: {
     backgroundColor: Colors.primary,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 20,
     marginTop: '5%',
-    right: 50,
+
   },
   img: {
     width: '50%',

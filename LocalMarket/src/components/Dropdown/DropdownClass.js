@@ -1,26 +1,35 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import SelectDropdown from 'react-native-select-dropdown';
 import Colors from '../../constant/Colors';
 
-export default DropdownClass = (props) => {
-
+export default DropdownClass = props => {
   return (
     <View style={styles.viewContainer}>
+      <View>
+        <Text
+          style={{
+            fontSize: 14,
+            color: Colors.primaryText,
+            textAlign: 'left',
+            marginVertical: 4,
+          }}>
+          {props.lable}
+        </Text>
+      </View>
       <SelectDropdown
-        data={props.classes}
-        // defaultValueByIndex={1}
-        // defaultValue={'Egypt'}
-        defaultButtonText={'Select Class'}
-        buttonTextAfterSelection={(selectedItem) => {
+        data={props.data}
+        defaultButtonText={props.defaultButtonText}
+        buttonTextAfterSelection={selectedItem => {
           return selectedItem.name;
         }}
-        rowTextForSelection={(item) => {
+        rowTextForSelection={item => {
           return item.name;
         }}
+        onSelect={props.onSelect}
         buttonStyle={styles.dropdown1BtnStyle}
         buttonTextStyle={styles.dropdown1BtnTxtStyle}
         renderDropdownIcon={isOpened => {
@@ -49,32 +58,29 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 10,
   },
-
+  viewContainer:{marginVertical:10},
   dropdown1BtnStyle: {
-    width: '82%',
-    marginHorizontal: '9%',
-    marginTop: '5%',
-    height: 50,
+    borderRadius: 6,
+    padding: 10,
     backgroundColor: Colors.secondaryColor,
-    borderRadius: 8,
-    elevation: 4,
-    shadowColor: Colors.primaryText,
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.4
+    borderWidth:1,
+    borderColor:Colors.lightText,
+    width: '100%',
   },
   dropdown1BtnTxtStyle: {
     color: Colors.primaryText,
     textAlign: 'left',
   },
   dropdown1DropdownStyle: {
-    backgroundColor: Colors.secondaryColor
+    backgroundColor: Colors.secondaryColor,
+    borderRadius: 4,
   },
   dropdown1RowStyle: {
-    backgroundColor: Colors.secondaryColor, 
-    borderBottomColor: '#C5C5C5'
+    backgroundColor: Colors.secondaryColor,
+    borderBottomColor: '#C5C5C5',
   },
   dropdown1RowTxtStyle: {
-    color: Colors.primaryText, 
-    textAlign: 'center'
+    color: Colors.secondaryText,
+    textAlign: 'center',
   },
 });

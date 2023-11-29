@@ -20,13 +20,16 @@ import Colors from '../constant/Colors';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import CustomDrawer from './CustomDrawer';
-import Products from '../screens/Customer/Products';
 import ProductDetails from '../screens/Customer/ProductDetails';
 import Stores from '../screens/Customer/Stores';
 import Cart from '../screens/Customer/Cart';
 import MyOrders from '../screens/Customer/MyOrders';
 import Icons from '../constant/Icons';
 import Notification from '../screens/Settings/Notification';
+import Profile from '../screens/StorePanel/Profile';
+import Dashboard from '../screens/StorePanel/Dashboard';
+import Products from '../screens/StorePanel/Products';
+import ProductAdd from '../screens/StorePanel/ProductAdd';
 
 //******SCREEN********* */
 
@@ -104,8 +107,8 @@ export const HomeStack = ({navigation}) => {
   return (
     <MainStack.Navigator screenOptions={defaultStackNavOptions}>
            <MainStack.Screen
-        name="Stores"
-        component={Stores}
+        name="Dashboard"
+        component={Dashboard}
         options={{headerShown: false}}
       />
        <MainStack.Screen
@@ -133,7 +136,11 @@ export const HomeStack = ({navigation}) => {
         component={Notification}
         options={{headerShown: false}}
       />
-
+      <MainStack.Screen
+        name="ProductAdd"
+        component={ProductAdd}
+        options={{headerShown: false}}
+      />
 
     </MainStack.Navigator>
   );
@@ -154,8 +161,8 @@ const TabArr = [
     component: DrawerNavigation,
   },
   {
-    route: 'Cart',
-    lable: 'Cart',
+    route: 'Products',
+    lable: 'Products',
     icon: (
       <Icons
         name={'shopping-cart'}
@@ -164,7 +171,7 @@ const TabArr = [
         color={Colors.secondaryColor}
       />
     ),
-    component: Cart,
+    component: Products,
   },
 
   {
@@ -182,8 +189,8 @@ const TabArr = [
   }
   ,
   {
-    route: 'Notifications',
-    lable: 'Notifications',
+    route: 'Profile',
+    lable: 'Profile',
     icon: (
       <Icons
         name={'bell-alt'}
@@ -192,7 +199,7 @@ const TabArr = [
         color={Colors.secondaryColor}
       />
     ),
-    component: Notification,
+    component: Profile,
   },
 ];
 
@@ -305,7 +312,7 @@ const TabIcon = ({isFocused, tabIcon, label, index}) => {
   );
 };
 
-export const AppBottomTab = () => {
+export const StoreBottomTab = () => {
   const defaultTabNavOptions = {
     tabBarStyle: {
       backgroundColor: Colors.secondary,
@@ -341,13 +348,8 @@ const styles = StyleSheet.create({
     height: 60,
     alignSelf: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.backgroundColor,
     justifyContent: 'space-around',
-    elevation: 10,
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
   },
   slidingTabCotainer: {
     width: TAB_WIDTH,

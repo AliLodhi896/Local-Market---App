@@ -4,6 +4,7 @@ import {KeyboardAvoidingView, SafeAreaView, Platform} from 'react-native';
 import AppNavigationContainer from './src/navigations/NavigationContainer';
 import {AuthProvider} from './src/context/Context';
 import Colors from './src/constant/Colors';
+import Toast from 'react-native-toast-message';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <SafeAreaView
           style={{flex: 1, backgroundColor: Colors.backgroundColor}}>
           <AppNavigationContainer />
+          <Toast />
         </SafeAreaView>
       </KeyboardAvoidingView>
     </AuthProvider>

@@ -1,53 +1,15 @@
-import React, {useContext, useState} from 'react';
-import {StyleSheet, View, Text, Image,ScrollView} from 'react-native';
+import React, {useContext} from 'react';
+import {StyleSheet, View, Text, Image} from 'react-native';
 import Colors from '../../constant/Colors';
-import {InputField, PrimaryButton} from '../../components';
+import {CodeInput, InputField, PrimaryButton} from '../../components';
 import {useNavigation} from '@react-navigation/native';
 import {AuthContext} from '../../context/Context';
 import {useForm} from 'react-hook-form';
-import Toast from 'react-native-toast-message';
-import {send_otp} from '../../apis/authentication';
-import {OtplessModule} from 'otpless-react-native';
-import DropdownClass from '../../components/Dropdown/DropdownClass';
 
-const OnBoarding = () => {
-  const {
-    control,
-    handleSubmit,
-    formState: {errors, isValid},
-  } = useForm({mode: 'all'});
-  const {setIsSignin} = useContext(AuthContext);
+const VerifyOtp = ({route}) => {
+  const {otp} =  route.params
+  const {setIsSignin,setRole} = useContext(AuthContext);
   const navigation = useNavigation();
-  const [isLoading, setIsLoading] = useState(false);
-  const [selectedRole, setSelectedRole] = useState(null);
-  const [roles, setRoles] = useState([
-    {key: 1, name: 'Customer'},
-    {key: 2, name: 'Store'},
-  ]);
-
-  const sendOtp = async data => {
-    const min = 1000; 
-    const max = 9999;
-    const otp = Math.floor(Math.random() * (max - min + 1)) + min;
-    setIsLoading(true);
-    const responseData = await send_otp(data?.mobile_no,selectedRole?.key,otp);
-    if(responseData?.success == true) {
-      Toast.show({
-        type: 'success',
-        text1: responseData?.message,
-        visibilityTime: 2000,
-      });
-      navigation.navigate('VerifyOtp',{otp:otp});
-    }else{
-      Toast.show({
-        type: 'error',
-        text1: responseData?.message,
-        visibilityTime: 2000,
-      });
-      navigation.navigate('Registration')
-    }
-    setIsLoading(false);
-  };
 
   return (
     <View style={styles.mainContainer}>
@@ -65,44 +27,23 @@ const OnBoarding = () => {
           />
         </View>
       </View>
-      <ScrollView style={styles.internalContainer}>
+
+      <View style={styles.internalContainer}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Sign in</Text>
+          <Text style={styles.title}>Verify Otp</Text>
           <Text style={styles.sectionDescription}>
-            Enter your Whatsapp Number without country code to continue the app
+            Enter your otp received on your whatsapp to continue the app
           </Text>
         </View>
-        <DropdownClass
-          data={roles}
-          defaultButtonText={'Select Role'}
-          lable={'Select Role'}
-          onSelect={(selectedItem, index) => {
-            setSelectedRole(selectedItem)
-          }}
-        />
-        <InputField
-          name="mobile_no"
-          control={control}
-          lableVisible={false}
-          lable={'Mobile Number'}
-          rules={{
-            required: 'Mobile Number is required',
-          }}
-          placeholder="eg 999-999-9999"
-          keyboardType={'number-pad'}
-        />
-        {errors.mobile_no && (
-          <Text style={styles.errormessage}>* {errors.mobile_no.message}</Text>
-        )}
-        <View style={styles.buttonContainer}>
+        <CodeInput />
+      </View>
+      <View style={styles.buttonContainer}>
         <PrimaryButton
           title={'Send Otp'}
-          // onPress={handleSubmit(sendOtp)}/
-          onPress={()=>navigation.navigate('VerifyOtp',{otp:123})}
+          onPress={() => {setIsSignin(true),setRole(1)}}
+          // onPress={()=> }
         />
       </View>
-      </ScrollView>
-      
     </View>
   );
 };
@@ -112,7 +53,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondaryColor,
   },
   internalContainer: {
-    flex:1,
     marginHorizontal: 20,
   },
   titleContainer: {
@@ -197,7 +137,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 60,
+    marginHorizontal: 20,
   },
 });
 
-export default OnBoarding;
+export default VerifyOtp;
