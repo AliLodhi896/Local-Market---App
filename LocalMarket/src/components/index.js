@@ -14,6 +14,8 @@ import LessonCard from './Cards/LessonCard';
 import Card from './Cards/Card';
 import CategoryCard from './Cards/CategoryCard';
 import StoreCard from './Cards/StoreCard';
+import ProductCard from './Cards/ProductCard';
+
 
 
 // InputField
@@ -21,4 +23,4 @@ import InputField from './InputField/InputField';
 import CodeInput from './InputField/CodeInput';
 
 
-export {StoreCard,CategoryCard,CodeInput,DottedSlider, PrimaryButton, FloatingButton, BottomSheet, LessonCard, Card, PrimaryHeader, InputField};
+export {ProductCard,StoreCard,CategoryCard,CodeInput,DottedSlider, PrimaryButton, FloatingButton, BottomSheet, LessonCard, Card, PrimaryHeader, InputField};
