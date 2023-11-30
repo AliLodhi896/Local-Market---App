@@ -13,10 +13,12 @@ import BottomSheet from './BottomSheets/BottomSheet';
 import LessonCard from './Cards/LessonCard';
 import Card from './Cards/Card';
 import CategoryCard from './Cards/CategoryCard';
+import StoreCard from './Cards/StoreCard';
+
 
 // InputField
 import InputField from './InputField/InputField';
 import CodeInput from './InputField/CodeInput';
 
 
-export {CategoryCard,CodeInput,DottedSlider, PrimaryButton, FloatingButton, BottomSheet, LessonCard, Card, PrimaryHeader, InputField};
+export {StoreCard,CategoryCard,CodeInput,DottedSlider, PrimaryButton, FloatingButton, BottomSheet, LessonCard, Card, PrimaryHeader, InputField};

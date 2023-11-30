@@ -6,6 +6,7 @@ const CategoryCard = props => {
   return (
     <>
       <TouchableOpacity
+      onPress={props.onPress}
         style={{
           height: 70,
           width: 70,

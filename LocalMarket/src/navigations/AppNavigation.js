@@ -22,11 +22,12 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
 import Products from '../screens/Customer/Products';
 import ProductDetails from '../screens/Customer/ProductDetails';
-import Stores from '../screens/Customer/Stores';
+import Industries from '../screens/Customer/Industries';
 import Cart from '../screens/Customer/Cart';
 import MyOrders from '../screens/Customer/MyOrders';
 import Icons from '../constant/Icons';
 import Notification from '../screens/Settings/Notification';
+import Stores from '../screens/Customer/Stores';
 
 //******SCREEN********* */
 
@@ -103,7 +104,12 @@ export const HomeStack = ({navigation}) => {
 
   return (
     <MainStack.Navigator screenOptions={defaultStackNavOptions}>
-           <MainStack.Screen
+      <MainStack.Screen
+        name="Industries"
+        component={Industries}
+        options={{headerShown: false}}
+      />
+        <MainStack.Screen
         name="Stores"
         component={Stores}
         options={{headerShown: false}}

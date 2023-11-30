@@ -1,91 +1,66 @@
 import React, {useState, useRef} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Colors from '../../constant/Colors';
-import {
-  Header,
-  Card,
-  BottomSheet,
-  FloatingButton,
-  LessonCard,
-} from '../../components';
+import {PrimaryHeader, Card, CategoryCard} from '../../components';
 import {useNavigation} from '@react-navigation/native';
-import Subject from '../Subject';
-import CreateAILesson from '../CreateAILesson';
+import {DrawerAnimationPage} from '../../components/animationconstant/DrawerAnimationPage';
+import Animated from 'react-native-reanimated';
+import SearchInput from '../../components/InputField/SearchInput';
 
 const Industries = () => {
   const navigation = useNavigation();
-  const subjectItems = [
-    {heading: 'Industry 1', description: 'This is Industry 1 '},
-    {heading: 'Industry 2', description: 'This is Industry 2 '},
-    {heading: 'Industry 3', description: 'This is Industry 3 '},
-    {heading: 'Industry 4', description: 'This is Industry 4 '},
-    {heading: 'Industry 5', description: 'This is Industry 5 '},
-    {heading: 'Industry 5', description: 'This is Industry 5 '},
-    {heading: 'Industry 5', description: 'This is Industry 5 '},
-    {heading: 'Industry 5', description: 'This is Industry 5 '},
-    {heading: 'Industry 5', description: 'This is Industry 5 '},
-    {heading: 'Industry 6', description: 'This is Industry 6 '},
+  const animatedStyle = DrawerAnimationPage();
+
+  const industries = [
+    {id: 1, name: 'Industry 1', uri: require('../../assets/Images/female.jpg')},
+    {id: 2, name: 'Industry 2', uri: require('../../assets/Images/female.jpg')},
+    {id: 3, name: 'Industry 3', uri: require('../../assets/Images/female.jpg')},
+    {id: 4, name: 'Industry 4', uri: require('../../assets/Images/female.jpg')},
+    {id: 5, name: 'Industry 5', uri: require('../../assets/Images/female.jpg')},
+    {id: 5, name: 'Industry 5', uri: require('../../assets/Images/female.jpg')},
+    {id: 5, name: 'Industry 5', uri: require('../../assets/Images/female.jpg')},
+    {id: 5, name: 'Industry 5', uri: require('../../assets/Images/female.jpg')},
+    {id: 5, name: 'Industry 5', uri: require('../../assets/Images/female.jpg')},
+    {id: 5, name: 'Industry 5', uri: require('../../assets/Images/female.jpg')},
+    {id: 5, name: 'Industry 5', uri: require('../../assets/Images/female.jpg')},
   ];
 
   return (
-    <View style={styles.mainContainer}>
-      <Header
-        heading={'Industries'}
-        title={'Go back'}
-        description={''}
-      />
+    <Animated.View
+      style={[styles.container(animatedStyle), styles.mainContainer]}>
+      <PrimaryHeader title={'Local Market'} />
       <View style={styles.internalContainer}>
-        <View
-          style={{
-            height: 'auto',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop:20
-          }}>
-          <FlatList
-            data={subjectItems}
-            renderItem={itemData => {
-              return (
-                <LessonCard
-                  heading={itemData.item.heading}
-                  description={itemData.item.description}
-                  onPress={() => {
-                    navigation.navigate('Products');
-                  }}
-                />
-              );
-            }}
+        <View style={styles.internalContainer}>
+          <SearchInput
+            boxStyle={{marginVertical: 10}}
+            placeholder={'Search Industries...'}
           />
+          <View style={styles.industriesContainer}>
+            {industries?.map(item => {
+              return <CategoryCard uri={item?.uri} name={item?.name} onPress={()=>navigation.navigate('Stores')} />;
+            })}
+          </View>
         </View>
-        <FloatingButton
-          createLesson={() => refRBSheet.current.open()}
-          openCreateAI={() => {
-            navigation.navigate(CreateAILesson);
-          }}
-        />
       </View>
-      {/* <BottomSheet refRBSheet={refRBSheet} classes={classes} subject={card}/> */}
-    </View>
+    </Animated.View>
   );
 };
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor,
-    justifyContent: 'space-between',
+    backgroundColor: Colors.primary,
   },
+  container: animatedStyle => ({
+    ...animatedStyle,
+    flex: 1,
+  }),
   internalContainer: {
-    backgroundColor: Colors.secondaryColor,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    height: '85%',
-    paddingBottom: 20,
+    padding: 4,
+    paddingVertical: 10,
   },
-  cardContainer: {
+  industriesContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
     flexWrap: 'wrap',
-    height: '100%',
   },
 });
 

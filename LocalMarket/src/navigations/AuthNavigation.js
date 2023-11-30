@@ -6,7 +6,7 @@ import Subject from '../screens/Subject';
 import { Welcome } from '../screens/Authentication';
 import OnBoarding from '../screens/Authentication/OnBoarding';
 import Registration from '../screens/Authentication/Registration';
-import Stores from '../screens/Customer/Stores';
+import Stores from '../screens/Customer/Industries';
 import VerifyOtp from '../screens/Authentication/VerifyOtp';
 
 const MainStack = createStackNavigator();

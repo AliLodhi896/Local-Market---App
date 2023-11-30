@@ -21,7 +21,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import CustomDrawer from './CustomDrawer';
 import ProductDetails from '../screens/Customer/ProductDetails';
-import Stores from '../screens/Customer/Stores';
+import Stores from '../screens/Customer/Industries';
 import Cart from '../screens/Customer/Cart';
 import MyOrders from '../screens/Customer/MyOrders';
 import Icons from '../constant/Icons';

@@ -1,173 +1,57 @@
 import React, {useState, useRef} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Colors from '../../constant/Colors';
-import {Header, BottomSheet, FloatingButton} from '../../components';
+import {PrimaryHeader, Card, CategoryCard, StoreCard} from '../../components';
 import {useNavigation} from '@react-navigation/native';
-import CreateAILesson from '../CreateAILesson';
-import FeaturedStore from '../../components/Cards/FeaturedStore';
+import {DrawerAnimationPage} from '../../components/animationconstant/DrawerAnimationPage';
+import Animated from 'react-native-reanimated';
+import SearchInput from '../../components/InputField/SearchInput';
 
 const Products = () => {
   const navigation = useNavigation();
-
-  const [classId, setClassId] = useState(1);
-  const refRBSheet = useRef(null);
-
-  const saveClassIdHandler = id => {
-    setClassId(id);
-  };
-
-  const classes = [
-    {id: 1, name: 'Category 1'},
-    {id: 2, name: 'Category 2'},
-    {id: 3, name: 'Category 3'},
-    {id: 4, name: 'Category 4'},
-    {id: 5, name: 'Category 5'},
-  ];
-  const card = [
-    {id: 1, classId: 1, Subject: 'Math'},
-    {id: 2, classId: 1, Subject: 'Eng'},
-    {id: 3, classId: 1, Subject: 'Islamiat'},
-    {id: 4, classId: 1, Subject: 'Islamiat'},
-  ];
+  const animatedStyle = DrawerAnimationPage();
   const stores = [
-    {
-      id: 1,
-      name: 'McDonalds',
-      image: require('../../assets/Images/McDonalds.jpg'),
-    },
-    {
-      id: 2,
-      name: 'Starbucks',
-      image: require('../../assets/Images/Starbucks.jpg'),
-    },
-    {
-      id: 3,
-      name: 'McDonalds',
-      image: require('../../assets/Images/McDonalds.jpg'),
-    },
-    {
-      id: 4,
-      name: 'Starbucks',
-      image: require('../../assets/Images/Starbucks.jpg'),
-    },
+    {id: 1, name: 'Store 1', uri: require('../../assets/Images/female.jpg'),description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'},
+    {id: 2, name: 'Store 2', uri: require('../../assets/Images/female.jpg'),description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'},
+    {id: 3, name: 'Store 3', uri: require('../../assets/Images/female.jpg'),description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'},
+    {id: 5, name: 'Store 5', uri: require('../../assets/Images/female.jpg'),description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'},
+    {id: 5, name: 'Store 5', uri: require('../../assets/Images/female.jpg'),description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'},
   ];
-
-  const tabTextStyle = id => {
-    return {
-      fontSize: 14,
-      fontWeight: id === classId ? 'bold' : '500',
-      color: id === classId ? Colors.secondaryColor : Colors.primary,
-    };
-  };
 
   return (
-    <View style={styles.mainContainer}>
-      <Header heading={'Products'} title={'Go back'} description={''} />
+    <Animated.View
+      style={[styles.container(animatedStyle), styles.mainContainer]}>
+      <PrimaryHeader title={'Local Market'} />
       <View style={styles.internalContainer}>
-        <View
-          style={{
-            height: 'auto',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginHorizontal: '6%',
-          }}>
-          <FlatList
-            data={classes}
-            horizontal={true}
-            renderItem={itemData => {
-              return (
-                <TouchableOpacity
-                  key={itemData.item.id}
-                  style={{
-                    marginTop: '10%',
-                    paddingHorizontal: 9,
-                    paddingVertical: 6,
-                    backgroundColor:
-                      itemData.item.id === classId ? Colors.btnPress : 'white',
-                    borderRadius: itemData.item.id === classId ? 8 : 0,
-                  }}
-                  onPress={() => saveClassIdHandler(itemData.item.id)}>
-                  <Text style={tabTextStyle(itemData.item.id)}>
-                    {itemData.item.name}
-                  </Text>
-                </TouchableOpacity>
-              );
-            }}
+        <View style={styles.internalContainer}>
+          <SearchInput
+            boxStyle={{marginVertical: 10}}
+            placeholder={'Search Stores...'}
           />
+          <View style={styles.industriesContainer}>
+            {stores?.map(item => {
+              return <StoreCard onPress={()=>navigation.navigate('Products')} uri={item?.uri} name={item?.name} description={item?.description} address={'Karachi Pakistan'} />;
+            })}
+          </View>
         </View>
-
-        <View style={styles.headingContainer}>
-          <Text style={styles.heading2}>Featured Products</Text>
-          <TouchableOpacity style={styles.textContainer}>
-            <Text style={styles.text}>View All</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.cardContainer}>
-          <FlatList
-            data={stores}
-            // horizontal={true}
-            renderItem={storeItem => {
-              return (
-                <FeaturedStore
-                  key={storeItem.item.id}
-                  name={storeItem.item.name}
-                  image={storeItem.item.image}
-                  onPress={() => {
-                    navigation.navigate('ProductDetails');
-                  }}
-                />
-              );
-            }}
-          />
-        </View>
-
-       
       </View>
-    </View>
+    </Animated.View>
   );
 };
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor,
-    justifyContent: 'space-between',
+    backgroundColor: Colors.primary,
   },
+  container: animatedStyle => ({
+    ...animatedStyle,
+    flex: 1,
+  }),
   internalContainer: {
-    backgroundColor: Colors.secondaryColor,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    height: '85%',
-    paddingBottom: 20,
+    padding: 4,
+    paddingVertical: 10,
   },
-  headingContainer: {
-    flexDirection: 'row',
-    marginHorizontal: '6%',
-    marginTop: 30,
-  },
-  heading2: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'black',
-  },
-  textContainer: {
-    flexDirection: 'row',
-    marginLeft: '35%',
-  },
-  text: {
-    color: Colors.primary,
-    fontSize: 14,
-    fontWeight: '500',
-    marginTop: 5,
-  },
-  cardContainer: {
-    marginHorizontal:20,
+  industriesContainer: {
   },
 });
 
